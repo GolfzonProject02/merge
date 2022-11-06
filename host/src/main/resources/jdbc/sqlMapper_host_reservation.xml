@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.host.domain.Reservation">
+	
+	<update id="SQL_UPDATE_STATUS" parameterType="worktalk.com.host.domain.Reservation">
+		UPDATE RESERVATION SET STATUS = #{status} where r_num = #{r_num} 
+	</update>
+	
+	<update id="SQL_UPDATE_CANCEL" parameterType="worktalk.com.host.domain.Reservation">
+		UPDATE RESERVATION SET STATUS = #{status}, CANCEL_REASON = #{cancel_reason}, R_DATE = sysdate  where r_num = #{r_num} 
+	</update>
+
+	<select id="SQL_FIND_RESERVATION_BY_NAME" parameterType="worktalk.com.host.domain.Reservation" resultType="worktalk.com.host.domain.Reservation">
+		select R_NUM, ROOM_NAME, NAME, reserve.ROOM_NUM, r.space_num, SPACE_NAME, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START, to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE, AMOUNT, CANCEL_REASON from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{name}) ORDER BY R_NUM DESC
+	</select>
+	
+	<select id="SQL_FIND_RESERVATION_BY_NUM" parameterType="worktalk.com.host.domain.Reservation" resultType="worktalk.com.host.domain.Reservation">
+		select R_NUM, NAME, reserve.ROOM_NUM, space_num, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START, to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE, AMOUNT, CANCEL_REASON from reservation reserve  join room r on  reserve.room_num = r.room_num and r_num = #{r_num} ORDER BY R_NUM DESC
+	</select>
+	
+	<select id="SQL_FIND_RESERVATION_BY_KEYWORD" parameterType="worktalk.com.host.domain.Reservation" resultType="worktalk.com.host.domain.Reservation">
+		select R_NUM, ROOM_NAME, NAME, reserve.ROOM_NUM, r.space_num, SPACE_NAME, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START, to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE, AMOUNT, CANCEL_REASON from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{name})
+
+		<if test="space_num != 0">
+		  	and SPACE_NUM = #{space_num}
+		</if>
+		<if test="status != null">
+			and STATUS = #{status}
+		</if>
+		order by R_NUM DESC
+	</select>
+	
+</mapper>

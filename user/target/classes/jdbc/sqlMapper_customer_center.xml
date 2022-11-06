@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.user.repository.Customer_centerDAOimpl">
+
+	<insert id="SQL_INSERT_CC"
+		parameterType="worktalk.com.user.domain.Customer_center">
+		INSERT INTO customer_center
+		(cc_num,writer,title,content,type,imgname,cc_date)
+		VALUES(seq_customer_center.nextval,#{writer},#{title},#{content},#{type},#{imgname},localtimestamp)
+	</insert>
+
+	<update id="SQL_UPDATE_CC" parameterType="worktalk.com.user.domain.Customer_center">
+		UPDATE customer_center SET
+		title=#{title},content=#{content},type=#{type},imgname=#{imgname},cc_date=localtimestamp WHERE
+		cc_num=#{cc_num}
+	</update>
+
+	<delete id="SQL_DELETE_CC" parameterType="worktalk.com.user.domain.Customer_center">
+		DELETE FROM customer_center WHERE
+		cc_num=#{cc_num}
+	</delete>
+
+	<select id="SQL_SELECT_ALL_CC" resultType="worktalk.com.user.domain.Customer_center"
+		parameterType="worktalk.com.user.domain.Customer_center">
+		SELECT * FROM customer_center ORDER BY cc_num DESC
+	</select>
+
+	<select id="SQL_SEARCH_LIST_CC" resultType="worktalk.com.user.domain.Customer_center"
+		parameterType="hashmap">
+		SELECT * FROM customer_center
+		<if test="searchKey == 'title'">
+			WHERE title LIKE #{searchWord} ORDER BY cc_num DESC
+		</if>
+		<if test="searchKey == 'content'">
+			WHERE content LIKE #{searchWord} ORDER BY cc_num DESC
+		</if>
+
+	</select>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.master.domain.Master">
+	<insert id="SQL_INSERT" parameterType="worktalk.com.master.domain.Master">
+		INSERT INTO MEMBER(NUM, EMAIL, PW, NAME, TEL, ROLE, PENALTY) VALUES(SEQ_MEMBER.NEXTVAL, #{email}, #{pw}, #{name}, #{tel},#{role},#{penalty})
+	</insert>
+	
+	<update id="SQL_UPDATE" parameterType="worktalk.com.master.domain.Master">
+		UPDATE MEMBER set 
+			<if test="name != null">
+				NAME=#{name}
+			</if>
+			<if test="tel != null">
+				TEL=#{tel}
+			</if>
+			<if test="pw != null">
+				PW=#{pw}
+			</if>
+			<if test="imgname != null">
+				IMGNAME=#{imgname}
+			</if>
+			WHERE NUM = #{num}
+	</update>
+	
+	<update id="SQL_UPDATE_PENALTY" parameterType="worktalk.com.master.domain.Master">
+		UPDATE MEMBER set PENALTY = #{penalty} WHERE NAME = #{name}
+	</update>
+	
+	<delete id="SQL_DELETE" parameterType="worktalk.com.master.domain.Master">
+		DELETE FROM MEMBER WHERE NUM=#{num}
+	</delete>
+	
+	<select id="SQL_SELECT_ONE" parameterType="worktalk.com.master.domain.Master" resultType="worktalk.com.master.domain.Master">
+		SELECT * FROM MEMBER WHERE NUM=#{num}
+	</select>
+	
+	<select id="SQL_FIND_BY_NAME" parameterType="worktalk.com.master.domain.Master" resultType="worktalk.com.master.domain.Master">
+		SELECT * FROM MEMBER WHERE NAME=#{name}
+	</select>
+	
+	<select id="SQL_FIND_BY_MAIL" parameterType="worktalk.com.master.domain.Master" resultType="worktalk.com.master.domain.Master">
+		SELECT * FROM MEMBER WHERE EMAIL=#{email}
+	</select>
+	
+	<select id="SQL_FIND_ALL" resultType="worktalk.com.master.domain.Master">
+		SELECT * FROM MEMBER ORDER BY NUM DESC
+	</select>
+
+</mapper>

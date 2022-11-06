@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.host.repository.QnaCommentimpl">
+
+	<insert id="SQL_INSERT_QNA_COMMENT"
+		parameterType="worktalk.com.host.domain.QnaComment">
+		INSERT INTO qna_comment
+		(q_num,host,qc_comment,qc_date)
+		VALUES(#{q_num},#{host},#{qc_comment},TO_CHAR(localtimestamp,'yyyy-mm-dd HH:mm'))
+	</insert>
+
+	<update id="SQL_UPDATE_QNA_COMMENT" parameterType="worktalk.com.host.domain.QnaComment">
+		UPDATE qna_comment SET
+		qc_comment=#{qc_comment}, host=#{host}, qc_date=TO_CHAR(localtimestamp,'yyyy-mm-dd HH:mm') WHERE
+		q_num=#{q_num}
+	</update>
+
+	<delete id="SQL_DELETE_QNA_COMMENT" parameterType="worktalk.com.host.domain.QnaComment">
+		DELETE FROM qna_comment WHERE
+		q_num=#{q_num}
+	</delete>
+
+	<select id="SQL_SELECT_ALL_QNA_COMMENT" resultType="worktalk.com.host.domain.QnaComment"
+		parameterType="worktalk.com.host.domain.QnaComment">
+		SELECT * FROM qna_comment WHERE q_num = #{q_num}
+		ORDER BY q_num DESC
+	</select>
+	
+
+</mapper>

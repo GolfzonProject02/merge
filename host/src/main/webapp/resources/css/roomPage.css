@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    font-size: 20px;
+}
+#bodyarea {
+    width: 720px;
+    height: 100%;
+    margin: auto;
+}
+/* 공간입력 */
+#spaceName {
+    margin: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 10px;
+}
+#spaceTypeTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    letter-spacing: 5px;
+    color: gray
+}
+#space_category {
+    display: flex;
+    justify-content: center;
+}
+.space_category_item {
+    display: flex;
+    width: 200px;
+    height: 150px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 20px;
+}
+#space_category img {
+    width: 60px;
+}
+.box {
+    position: relative;
+}
+#roomTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    letter-spacing: 5px;
+    color: gray;
+}
+#roomAddName {
+    margin-bottom: 10px;
+}
+#room_type {
+    margin-left: 20px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 17px;
+    text-align: center;
+}
+#room_name {
+    margin-left: 10px;
+    width: 350px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 17px;
+    padding: 0px 15px;
+}
+#roomAddBtn {
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: 0px;
+    background-color: white;
+}
+#roomAddBox {
+    margin-bottom: 20px;
+}
+.roomInsert {
+    position: relative;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    width: 630px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.roomInsert input, .roomInsert textarea {
+    margin: 5px 10px 10px 15px;
+}
+.room_type {
+    border-radius: 5px;
+    width: 360px;
+    height: 30px;
+}
+.room_price {
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+}
+.pricePTag {
+    position: absolute;
+    top: 10px;
+    right: 160px;
+}
+.roomInsert textarea {
+    border-radius: 5px;
+    width: 580px;
+    height: 70px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    resize: none;
+}
+.room_detailCount {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    color: gray;
+}
+.roomInsert p {
+    font-size: 17px;
+    font-weight: bold;
+}
+#submit {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-align: center;
+    width: 60px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+#submit:hover {
+    background-color: rgb(208, 208, 230);
+    color: white;
+}
+.close {
+    position: absolute;
+    width: 25px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+.work_time_setting {
+    display: flex;
+    margin-bottom: 10px;
+}
+.work_start, .work_end {
+    margin: 0px 10px;
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+}

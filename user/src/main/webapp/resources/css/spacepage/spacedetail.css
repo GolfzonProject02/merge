@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+/* 제목 */
+#spaceTitle {
+    margin: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/* 상단디자인 */
+/* 상단 틀 */
+#detail_top {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+/* 이미지 컨트롤 버튼 */
+.controller button {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    top: 45%;
+    font-size: 30px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgba(20, 20, 20, 0.123);
+    color: white;
+}
+.controller button:hover {
+    background-color: rgba(44, 85, 196, 0.459);
+}
+.prev {left: 20px;}
+.next {right: 405px;}
+/* 이미지 */
+.slides_img {
+    width: 600px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(88, 86, 86, 0.055);
+}
+.slides_img img {
+    width: 600px;
+    height: 450px;
+    object-fit: contain;
+}
+/* 상단-우측 */
+#mapArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#mapArea p {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(126, 123, 123);
+    margin-bottom: 5px;
+}
+#space_info {
+    width: 350px;
+    word-break: break-all;
+}
+/* 하단디자인 */
+#detail_bottom {
+    display: flex;
+    justify-content: space-around;
+}
+/* 하단-네비게이션바 */
+#navVar {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 50px;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0px;
+    font-size: 20px;
+    background-color: white;
+    z-index: 2;
+}
+#navVar ul {
+    display: table;
+    list-style: none;
+    margin: 11px 0px;
+}
+#navVar li {
+    display: table-cell;
+    padding: 0px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#navVar li:hover{
+    background-color: rgb(175, 175, 231);
+    color: white;
+}
+#navVar li:not(:last-child) {
+    border-right: 2px solid gray;
+}
+.on {
+    background-color: rgb(175, 175, 231);
+    color: white;
+}
+/* 공간정보 */
+#detailContent {
+    padding-left: 20px;
+}
+#detailContent p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.spaceItroText {
+    width: 550px;
+    margin: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 0px;
+    resize: none;
+}
+/* QNA */
+#spaceQNA {
+    position: relative;
+}
+#QNA {
+    margin: 10px 20px;
+    width: 550px;
+}
+#QNA p {
+    font-size: 15px;
+}
+.review_box{
+    margin-bottom: 10px;
+}
+.review_box:not(:last-child) {
+    border-bottom: 1px solid gray;
+}
+.QNA {
+    position: relative;
+}
+.QNA, .QNAAnser {
+    margin-bottom: 10px;
+}
+.QNAText {
+    width: 400px;
+    margin: 10px 20px;
+    border: 0px;
+    resize: none;
+}
+.QNAAnser_title {
+    color: rgb(111, 128, 224);
+    font-weight: bold;
+}
+#qna_insert_btn{
+    position: absolute;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 110px;
+    height: 30px;
+    background-color: white;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+
+}
+/* 이용후기 */
+#spaceReview {
+    position: relative;
+}
+#reviewsGradeAvg {
+    position: absolute;
+    top: 5px;
+    left: 85px;
+}
+#reviews {
+    margin: 10px 20px;
+    width: 550px;
+}
+#reviews p {
+    font-size: 15px;
+}
+.review_box{
+    margin-bottom: 10px;
+}
+.review_box:not(:last-child) {
+    border-bottom: 1px solid gray;
+}
+.review {
+    position: relative;
+}
+.review, .reviewAnser {
+    margin-bottom: 10px;
+}
+.reviewGrade img {
+    position: absolute;
+    width: 100px;
+    top: 0;
+    right: 0;
+}
+.reviewGradeColor {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    width: 30px;
+    right: 70px;
+}
+.reviewGradeColor img {
+    width: 100px;
+}
+.updateBtn {
+    position: absolute;
+    right: 50px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.updateBtn:hover{
+    background-color: rgb(150, 150, 219);
+    color: white;
+}
+.deleteBtn {
+    position: absolute;
+    right: 0px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.deleteBtn:hover{
+    background-color: rgb(219, 150, 150);
+    color: white;
+}
+.reviewImg {
+    padding: 0px 10px;
+}
+.reviewImg img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: rgba(175, 175, 175, 0.123);
+}
+.reviewText {
+    width: 400px;
+    margin: 10px 20px;
+    border: 0px;
+    resize: none;
+}
+.reviewAnser_title {
+    color: rgb(111, 128, 224);
+    font-weight: bold;
+}
+/* 예약 */
+#rBox {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+    position: relative;
+}
+#close {
+    position: absolute;
+    width: 25px;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.room p {
+    float: right;
+}
+#reservationBox{
+    position: relative;
+    width: 300px;
+    height: 540px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+#reservationBox>div {
+    margin: 10px 0px;
+}
+#reservationOK {
+    display: flex;
+    flex-direction: column;
+}
+#roomImgBox {
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+}
+.roomImg {
+    width: 300px;
+    height: 250px;
+    object-fit: contain;
+}
+.roomController button {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    top: 100px;
+    font-size: 30px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgba(20, 20, 20, 0.123);
+    color: white;
+}
+.roomController button:hover {
+    background-color: rgba(44, 85, 196, 0.459);
+}
+.roomPrev {left: 10px;}
+.roomNext {right: 15px;}
+#roomInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px 30px 0px;
+}
+#reservationInfo, #price{
+    font-size: 15px;
+    width: 300px;
+    margin: 5px 0px;
+    border: 0px;
+    pointer-events: none;
+}
+#reservationSubmit {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    border: 0px;
+    width: 80px;
+    height: 30px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+#reservationSubmit:hover{
+    color: white;
+    background-color: forestgreen;
+}
+.writeDate {
+    color: gray;
+}
+#reservationDate {
+    width: 130px;
+    margin-left: 5px;
+}
+.reservationTime {
+    margin: 0px 5px;
+}
+#time_table_box {
+    width: 300px;
+    overflow: scroll;
+}
+#time_table_box td {
+    border: 1px solid gray;
+    cursor: pointer;
+}
+.selected {
+    background-color: rgb(255, 255, 182);
+}
+.unselected {
+    background-color: white
+}
+.limit {
+    background-color: rgb(102, 102, 102);
+}
+/* qna insert */
+#qna_insert {
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    right: 10px;
+    top: 0px;
+    width: 500px;
+    height: 240px;
+    z-index: 1;
+}
+#qna_content, #qna_title {
+    margin-bottom: 10px;
+    width: 475px;
+    resize: none;
+    padding: 10px;
+}
+#qna_insert p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#qna_type {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 70px;
+    font-size: 15px;
+    text-align: center;
+}
+.sort_box {
+    position: absolute;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 110px;
+    height: 30px;
+    background-color: white;
+    right: 10px;
+    top: 10px;
+}
+#qna_content {
+    height: 100px;
+}
+#insert_submit, #insert_close {
+    position: absolute;
+    width: 50px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#insert_submit:hover {
+    background-color: rgb(151, 156, 224);
+    color: white;
+    font-weight: bold;
+}
+#insert_close {
+    bottom: 7px;
+    right: 15px;
+}
+#insert_submit {
+    right: 75px;
+    bottom : 7px;
+}
+/* qna update */
+#update_box {
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    top: 0px;
+    z-index: 1;
+}
+#qna_update_content, #qna_update_title {
+    margin-bottom: 10px;
+    width: 510px;
+    resize: none;
+    padding: 10px;
+}
+#qna_update_type {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 70px;
+    font-size: 15px;
+    text-align: center;
+}
+#qna_update_content {
+    height: 100px;
+}
+#update_box p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#update_close, #qna_update_submit {
+    position: absolute;
+    width: 50px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#update_close {
+    bottom: 13px;
+    right: 15px;
+}
+#qna_update_submit {
+    right: 75px;
+
+}
+#qna_update_submit:hover {
+    background-color: rgb(151, 156, 224);
+    color: white;
+    font-weight: bold;
+}

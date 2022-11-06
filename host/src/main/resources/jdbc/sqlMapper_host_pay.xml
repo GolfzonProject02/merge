@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.host.domain.Pay">
+	<insert id="SQL_PAY_INSERT" parameterType="worktalk.com.host.domain.Pay">
+		INSERT INTO PAYMENT(P_NUM, UUID, R_NUM, P_STATUS, AMOUNT, NAME, P_DATE) VALUES(SEQ_PAYMENT.NEXTVAL, #{imp_uid}, #{r_num}, #{p_status}, #{p_amount},#{p_name},#{p_date})
+	</insert>
+
+	<select id="SQL_PAY_FIND_BY_NAME" parameterType="worktalk.com.host.domain.Pay" resultType="worktalk.com.host.domain.Pay">
+		select * from payment where name = #{p_name} order by p_date desc
+	</select>
+	
+	<select id="SQL_PAY_FIND_BY_NUM" parameterType="worktalk.com.host.domain.Pay" resultType="worktalk.com.host.domain.Pay">
+		select P_NUM, UUID as imp_uid, R_NUM, P_STATUS, AMOUNT p_amount, NAME as p_name, P_DATE from payment where r_num = #{r_num} order by p_date desc
+	</select>
+	
+	<select id="SQL_PAY_HISTORY_BY_NAME" parameterType="worktalk.com.host.domain.Pay" resultType="worktalk.com.host.domain.Pay">
+		select p_num, r.name, uuid as imp_uid, to_char(r_date, 'YYYY-MM-DD HH24:MI:SS') reserve_date , s.space_name, ro.room_name, p.p_status, r.status as reserve_status, p.amount, to_char(p_date, 'YYYY-MM-DD HH24:MI:SS') p_date from reservation r join room ro on r.room_num = ro.room_num join space s on s.space_num = ro.space_num join payment p on r.r_num = p.r_num where r.r_num = ANY (select R_NUM from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{p_name})) and p_date >= (sysdate - 30) order by p_num desc
+	</select>
+	
+	<select id="SQL_PAY_HISTORY_BY_STATUS" parameterType="worktalk.com.host.domain.Pay" resultType="worktalk.com.host.domain.Pay">
+		select p_num, r.name, uuid as imp_uid, to_char(r_date, 'YYYY-MM-DD HH24:MI:SS') reserve_date , s.space_name, ro.room_name, p.p_status, r.status as reserve_status, p.amount, to_char(p_date, 'YYYY-MM-DD HH24:MI:SS') p_date from reservation r join room ro on r.room_num = ro.room_num join space s on s.space_num = ro.space_num join payment p on r.r_num = p.r_num where r.r_num = ANY (select R_NUM from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{p_name})) and p_date >= (sysdate - 30)
+		<if test="space_num != null">
+			and ro.space_num = #{space_num}	
+		</if>
+		<if test="p_status != null">
+			and p.p_status = #{p_status}	
+		</if>
+		order by p_num desc
+	</select>
+	
+	<select id="SQL_PAY_DATE_UID_BY_RNUM" parameterType="worktalk.com.host.domain.Pay" resultType="worktalk.com.host.domain.Pay">
+		select p_num, r.name as p_name, uuid as imp_uid,p.R_NUM, r.NAME, to_char(r_date, 'YYYY-MM-DD HH24:MI:SS') reserve_date, to_char(r_start, 'YYYY-MM-DD HH24:MI:SS') checkin_date, p.p_status, r.amount as p_amount from reservation r join payment p on r.r_num = p.r_num where r.r_num = #{r_num}
+	</select>
+	
+	<select id="SQL_PAY_CAL_PAID" parameterType="worktalk.com.host.domain.Pay" resultType="int">
+		select sum(amount) from payment where r_num = ANY (select R_NUM from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{p_name})) and p_status = ANY('Prepaid', 'Postpaid', 'Deposit')
+	</select>
+	
+	<select id="SQL_PAY_CAL_REFUND" parameterType="worktalk.com.host.domain.Pay" resultType="int">
+		select sum(amount) from payment where r_num = ANY (select R_NUM from reservation reserve  join room r on  reserve.room_num = r.room_num join space on r.space_num = space.space_num where r.space_num = ANY(select r.space_num from space where host = #{p_name})) and p_status = 'Refund'
+	</select>
+
+</mapper>

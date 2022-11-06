@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.master.domain.Penalty">
+
+	<insert id="SQL_INSERT_PENALTY" parameterType="worktalk.com.master.domain.Penalty">
+		INSERT INTO PENALTY(P_NUM, NAME, P_REASON, P_TYPE, P_DATE) VALUES(SEQ_PENALTY.NEXTVAL, #{p_name}, #{p_reason}, #{p_type}, sysdate)
+	</insert>
+	
+	<delete id="SQL_DELETE_PENALTY" parameterType="worktalk.com.master.domain.Penalty">
+		DELETE FROM PENALTY WHERE NAME=#{p_name}
+	</delete>
+
+</mapper>

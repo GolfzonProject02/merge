@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+}
+/* 제목 */
+#spaceTitle {
+    margin: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/* 상단디자인 */
+/* 상단 틀 */
+#detail_top {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+/* 이미지 컨트롤 버튼 */
+.controller button {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    top: 45%;
+    font-size: 30px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgba(20, 20, 20, 0.123);
+    color: white;
+}
+.controller button:hover {
+    background-color: rgba(44, 85, 196, 0.459);
+}
+.prev {left: 20px;}
+.next {right: 405px;}
+/* 이미지 */
+.slides_img {
+    width: 600px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(88, 86, 86, 0.055);
+}
+.slides_img img {
+    width: 600px;
+    height: 450px;
+    object-fit: contain;
+}
+/* 상단-우측 */
+#mapArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#mapArea p {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(126, 123, 123);
+    margin-bottom: 5px;
+}
+/* 하단디자인 */
+#detail_bottom {
+    display: flex;
+    justify-content: space-around;
+}
+/* 하단-네비게이션바 */
+#navVar {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 50px;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0px;
+    font-size: 20px;
+    background-color: white;
+    z-index: 2;
+}
+#navVar ul {
+    display: table;
+    list-style: none;
+    margin: 11px 0px;
+}
+#navVar li {
+    display: table-cell;
+    padding: 0px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#navVar li:hover{
+    background-color: rgb(175, 175, 231);
+    color: white;
+}
+#navVar li:not(:last-child) {
+    border-right: 2px solid gray;
+}
+.on {
+    background-color: rgb(175, 175, 231);
+    color: white;
+}
+/* 공간정보 */
+#detailContent {
+    padding-left: 20px;
+}
+#spaceItro {
+    position: relative;
+}
+#detailContent p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.spaceItroText {
+    width: 550px;
+    margin: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 0px;
+    resize: none;
+}
+.spaceUpdateBtn {
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+/* 공간수정 */
+#update_spaceItro{
+    position: relative;
+    margin-left: 20px;
+    width: 500px;
+    border: 3px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+}
+#update_space_detail{
+    margin: 10px;
+    margin-bottom: 30px;
+    width: 460px;
+    font-size: 15px;
+    resize: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+#spaceInfo_textCount{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: gray;
+}
+#update_space_detail_close{
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+#update_space_detail_submit{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+/* 세부공간 수정 */
+.reservationBox{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+.reservationBox>div {
+    margin: 10px 0px;
+}
+#roomImgBox {
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+}
+.roomImg {
+    width: 300px;
+    height: 250px;
+    object-fit: contain;
+}
+.roomController button {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    top: 150px;
+    font-size: 30px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgba(20, 20, 20, 0.123);
+    color: white;
+}
+.roomController button:hover {
+    background-color: rgba(44, 85, 196, 0.459);
+}
+.roomPrev {left: 10px;}
+.roomNext {right: 15px;}
+/* QNA */
+#spaceQNA {
+    position: relative;
+}
+#QNA {
+    margin: 10px 20px;
+    width: 550px;
+}
+#QNA p {
+    font-size: 15px;
+}
+.QNA_box{
+    margin-bottom: 10px;
+}
+.QNA_box:not(:last-child) {
+    border-bottom: 1px solid gray;
+}
+.QNA, .QNAAnser {
+    position: relative;
+    margin-bottom: 10px;
+}
+.QNAText {
+    width: 400px;
+    margin: 10px 20px;
+    border: 0px;
+    resize: none;
+}
+.QNAAnser_title {
+    color: rgb(111, 128, 224);
+    font-weight: bold;
+}
+/* 이용후기 */
+#spaceReview {
+    position: relative;
+}
+#reviewsGradeAvg {
+    position: absolute;
+    top: 5px;
+    left: 85px;
+}
+#reviews {
+    margin: 10px 20px;
+    width: 550px;
+}
+#reviews p {
+    font-size: 15px;
+}
+.review_box{
+    margin-bottom: 10px;
+}
+.review_box:not(:last-child) {
+    border-bottom: 1px solid gray;
+}
+.review, .reviewAnser {
+    position: relative;
+    margin-bottom: 10px;
+}
+.reviewGrade img {
+    position: absolute;
+    width: 100px;
+    top: 0;
+    right: 0;
+}
+.reviewGradeColor {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    width: 30px;
+    right: 70px;
+}
+.reviewGradeColor img {
+    width: 100px;
+}
+.insertBtn {
+    position: absolute;
+    right: 0px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.insertBtn:hover{
+    background-color: rgb(150, 219, 173);
+    color: white;
+}
+.updateBtn {
+    position: absolute;
+    right: 50px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.updateBtn:hover{
+    background-color: rgb(150, 150, 219);
+    color: white;
+}
+.deleteBtn {
+    position: absolute;
+    right: 0px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.deleteBtn:hover{
+    background-color: rgb(219, 150, 150);
+    color: white;
+}
+.reviewImg {
+    padding: 0px 10px;
+}
+.reviewImg img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background-color: rgba(175, 175, 175, 0.123);
+}
+.reviewText {
+    width: 400px;
+    margin: 10px 20px;
+    border: 0px;
+    resize: none;
+}
+.reviewAnser_title {
+    color: rgb(111, 128, 224);
+    font-weight: bold;
+}
+.writeDate {
+    color: gray;
+
+}
+/* 호스트 qna 답글 */
+.QNA_box, .review_box {
+    position: relative;
+}
+#host_insert, #host_update {
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    top: 0px;
+    z-index: 1;
+}
+#qc_comment, #rv_comment {
+    margin-bottom: 10px;
+    width: 500px;
+    height: 80px;
+    resize: none;
+    padding: 10px;
+
+}

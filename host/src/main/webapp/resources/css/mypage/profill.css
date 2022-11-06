@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+}
+#pofill_title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0px 20px;
+    letter-spacing: 5px;
+}
+#profill_contain{
+    width: 550px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.profill_img_box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid gray;
+}
+#profill{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 50px;
+}
+.profill_box {
+    position: relative;
+    display: flex;
+    margin: 30px 10px;
+    font-size: 18px;
+}
+.profill_category {
+    margin-right: 20px;
+}
+.profill_update_btn {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+.profill_update_btn:hover{
+    background-color: rgb(209, 209, 241);
+    color: white;
+}
+/* 업데이트 박스 */
+.update_box {
+    display: flex;
+    align-items: center;
+}
+.updateVal {
+    width: 100px;
+    height: 20px;
+    padding: 0px 10px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+}
+#mailCheckInput {
+    width: 200px;
+    height: 20px;
+    padding: 0px 10px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+}
+.update_name_submit, .update_email_submit, .member_tel_check {
+    width: 50px;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: white;
+    border-radius: 10px;
+    letter-spacing: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.update_close {
+    width: 20px;
+    cursor: pointer;
+}
+.member_name_check, .member_email_check {
+    width: 60px;
+    height: 20px;
+    padding: 0px 10px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.telBox{
+    width: 80px;
+    height: 20px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.telBox::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 비밀번호 */
+#member_pw_update {
+    margin-left: 70px;
+}
+#member_pw_update_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 30px;
+}
+#member_pw_update_form div {
+
+}
+#password, #passwordCheck {
+    width: 200px;
+    height: 20px;
+}
+.member_pw_check {
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+.member_pw_check:hover{
+    background-color: rgb(209, 209, 241);
+    color: white;
+}

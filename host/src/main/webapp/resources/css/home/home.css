@@ -1,0 +1,109 @@
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+}
+
+/* 제목, 정렬 */
+#hostMain_title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    margin:50px 0px 30px 0px
+}
+#hostMain_title p {
+    font-size: 25px;
+    letter-spacing: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    line-height: 50px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+}
+#hostMain_title p:hover {
+    background-color: rgb(131, 131, 218);
+    color: white;
+}
+
+/* 공간 출력 */
+#space_contant_all {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.space_contant_item {
+    width: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.space_slide {
+    width: 200px;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides_img {
+    display: flex;
+}
+
+.space_slide img {
+    width: 200px;
+    height: 170px;
+    object-fit: contain;
+}
+
+/* 공간 텍스트 */
+.space_contant_text {
+    text-align: right;
+    border-bottom: 2px solid gray;
+}
+
+.space_contant_text p {
+    display: inline-block;
+}
+
+.space_name {
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.space_adress {
+    float: left;
+    font-size: 12px;
+    color: gray;
+}
+
+.space_contant_text img {
+    width: 18px;
+}
+
+.space_grade, .space_review {
+    font-size: 12px;
+}
+
+.controller button {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    top: 70px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    background-color: rgba(134, 157, 221, 0.123);
+    color: white;
+}
+
+.controller button:hover {
+    background-color: rgba(44, 85, 196, 0.459);
+}
+
+.prev {left: 5px;}
+.next {right: 5px;}

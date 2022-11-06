@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+#pageTitle {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    margin:30px 0px 50px 0px
+}
+#pageTitle p {
+    font-size: 25px;
+    letter-spacing: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    margin : 20px;
+    cursor: pointer;
+}
+/* 출력문 틀 */
+.sort_box {
+    position: absolute;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 110px;
+    height: 30px;
+    background-color: white;
+}
+#reservation {
+    top: 80px;
+    right: 270px;
+}
+#grade {
+    top: 80px;
+    right: 270px;
+}
+#qna_anser {
+    top: 80px;
+    right: 150px;
+}
+#review_anser {
+    top: 80px;
+    right: 150px;
+}
+#qna_selectAll, #review_selectAll {
+    margin: 10px 20px;
+}
+#qna_selectAll p, #review_selectAll p {
+    font-size: 15px;
+}
+.qna_box, .review_box {
+    width: 700px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 15px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.user_qna, .user_review {
+    position: relative;
+}
+.user_qna_title, .user_review_room {
+    font-weight: bold;
+}
+.user_qna_title {
+    position: absolute;
+    left: 70px;
+}
+.user_qna_type, .user_review_grade {
+    width: 50px;
+    text-align: center;
+    letter-spacing: 5px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.qnaText, .AnserText, .reviewText {
+    width: 500px;
+    margin: 10px 20px;
+    border: 0px;
+    resize: none;
+    pointer-events: none;
+}
+.master_review_Anser, .master_qna_Anser {
+    border-top: 3px solid gray;
+    padding-top: 10px;
+}
+.master_review_Anser_title, .master_qna_Anser_title {
+    color: rgb(111, 128, 224);
+    font-weight: bold;
+}
+
+.reviewGrade img {
+    position: absolute;
+    width: 100px;
+    top: 0;
+    right: 0;
+}
+.reviewGradeColor {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    width: 30px;
+    right: 70px;
+}
+.reviewGradeColor img {
+    width: 100px;
+}
+/* 수정,삭제버튼 */
+.review_updateBtn, .qna_updateBtn {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.review_updateBtn:hover, .qna_updateBtn:hover {
+    background-color: rgb(150, 150, 219);
+    color: white;
+}
+.review_deleteBtn, .qna_deleteBtn {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    border-radius: 5px;
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    cursor: pointer;
+}
+.review_deleteBtn:hover, .qna_deleteBtn:hover{
+    background-color: rgb(219, 150, 150);
+    color: white;
+}
+
+/* qna update */
+#qna_update_box, #review_update_box {
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    top: 0px;
+    z-index: 1;
+}
+#qna_update_content, #qna_update_title, #review_update_content {
+    margin-bottom: 10px;
+    width: 650px;
+    resize: none;
+    padding: 10px;
+}
+#review_update_title {
+    border: 0px;
+}
+#qna_update_type {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 70px;
+    font-size: 15px;
+    text-align: center;
+}
+.grade_wrap {
+    float: right;
+}
+#qna_update_content, #review_update_content {
+    height: 100px;
+}
+#qna_update_box p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#qna_update_close, #qna_update_submit, #review_update_close, #review_update_submit {
+    float: right;
+    width: 50px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#qna_update_submit:hover, #review_update_submit:hover {
+    background-color: rgb(151, 156, 224);
+    color: white;
+    font-weight: bold;
+}
+
+/* 별점 */
+.grade_wrap{display:inline-block;}
+.insert_grade_box{position:relative;background:url(../../css/image/icon/sp_star.png) 0 0 no-repeat;font-size:0;}
+.insert_grade_box .grade_bg{display:block;position:absolute;top:0;left:0;height:18px;background:url(../../css/image/icon/sp_star.png) 0 -20px no-repeat;pointer-events:none;}
+.insert_grade_box .label_star{display:inline-block;width:10px;height:18px;box-sizing:border-box;}
+.insert_grade_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.insert_grade_box .star_radio:nth-of-type(1):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(1):checked ~ .grade_bg{width:10%;}
+.insert_grade_box .star_radio:nth-of-type(2):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(2):checked ~ .grade_bg{width:20%;}
+.insert_grade_box .star_radio:nth-of-type(3):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(3):checked ~ .grade_bg{width:30%;}
+.insert_grade_box .star_radio:nth-of-type(4):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(4):checked ~ .grade_bg{width:40%;}
+.insert_grade_box .star_radio:nth-of-type(5):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(5):checked ~ .grade_bg{width:50%;}
+.insert_grade_box .star_radio:nth-of-type(6):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(6):checked ~ .grade_bg{width:60%;}
+.insert_grade_box .star_radio:nth-of-type(7):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(7):checked ~ .grade_bg{width:70%;}
+.insert_grade_box .star_radio:nth-of-type(8):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(8):checked ~ .grade_bg{width:80%;}
+.insert_grade_box .star_radio:nth-of-type(9):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(9):checked ~ .grade_bg{width:90%;}
+.insert_grade_box .star_radio:nth-of-type(10):hover ~ .grade_bg,
+.insert_grade_box .star_radio:nth-of-type(10):checked ~ .grade_bg{width:100%;}
+
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}

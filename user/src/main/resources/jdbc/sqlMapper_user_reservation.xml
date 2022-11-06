@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.user.domain.Reservation">
+	<insert id="SQL_RESERVE" parameterType="worktalk.com.user.domain.Reservation">
+		INSERT INTO RESERVATION(R_NUM, NAME, ROOM_NUM, R_START, R_END, STATUS, P_STATUS, R_DATE, AMOUNT) VALUES(SEQ_RESERVATION.NEXTVAL, #{name}, #{room_num}, #{r_start}, #{r_end},#{status},#{paid},sysdate, #{amount})
+	</insert>
+	
+	<update id="SQL_CANCEL" parameterType="worktalk.com.user.domain.Reservation">
+		UPDATE RESERVATION SET STATUS = #{status}, CANCEL_REASON = #{cancel_reason}, R_DATE = sysdate WHERE R_NUM=#{r_num}
+	</update>
+	
+	<delete id="SQL_RESERVATION_DELETE" parameterType="worktalk.com.user.domain.Reservation">
+		DELETE FROM RESERVATION WHERE R_NUM = #{r_num}
+	</delete>
+	
+	<select id="SQL_IS_BOOKED" parameterType="worktalk.com.user.domain.Reservation" resultType="worktalk.com.user.domain.Reservation">
+		SELECT R_NUM, NAME, ROOM_NUM, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START,to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE FROM RESERVATION  WHERE ROOM_NUM = #{room_num} AND (STATUS='Booked') AND R_START BETWEEN #{r_start} and #{r_end} AND R_END BETWEEN #{r_start} and #{r_end}
+	</select>
+	
+	<select id="SQL_FIND_SPACE_NUM" parameterType="worktalk.com.user.domain.Reservation" resultType="worktalk.com.user.domain.Reservation">
+		select space_num from reservation r join room ro on r.room_num = ro.room_num where r_num = #{r_num};
+	</select>
+	
+	<select id="SQL_FIND_RESERVATION_BY_NUM" parameterType="worktalk.com.user.domain.Reservation" resultType="worktalk.com.user.domain.Reservation">
+		SELECT * FROM RESERVATION WHERE R_NUM=#{r_num}
+	</select>
+	
+	<select id="SQL_FIND_RESERVATION_BY_NAME" parameterType="worktalk.com.user.domain.Reservation" resultType="worktalk.com.user.domain.Reservation">
+<!-- 		SELECT R_NUM, NAME, RESERVATION.ROOM_NUM, ROOM_NAME, ROOM.SPACE_NUM, SPACE_NAME, R_START, R_END, STATUS, P_STATUS, R_DATE, AMOUNT, CANCEL_REASON FROM RESERVATION JOIN ROOM ON reservation.room_num = room.room_num JOIN SPACE ON room.space_num = space.space_num WHERE NAME= #{name} ORDER BY R_NUM DESC -->
+		SELECT R_NUM, NAME, RESERVATION.ROOM_NUM, ROOM_NAME, ROOM.SPACE_NUM, SPACE_NAME, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START, to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE, AMOUNT, CANCEL_REASON FROM RESERVATION JOIN ROOM ON reservation.room_num = room.room_num JOIN SPACE ON room.space_num = space.space_num WHERE NAME= #{name} ORDER BY R_NUM DESC
+	</select>
+	
+	<select id="SQL_FIND_RESERVATION_BY_STATUS" parameterType="worktalk.com.user.domain.Reservation" resultType="worktalk.com.user.domain.Reservation">
+		SELECT R_NUM, NAME, RESERVATION.ROOM_NUM, ROOM_NAME, ROOM.SPACE_NUM, SPACE_NAME, to_char(R_START, 'YYYY-MM-DD HH24:MI:SS') R_START, to_char(R_END, 'YYYY-MM-DD HH24:MI:SS') R_END, STATUS, P_STATUS, to_char(R_DATE, 'YYYY-MM-DD HH24:MI:SS') R_DATE, AMOUNT, CANCEL_REASON FROM RESERVATION JOIN ROOM ON reservation.room_num = room.room_num JOIN SPACE ON room.space_num = space.space_num WHERE NAME= #{name} AND STATUS = #{status} ORDER BY R_DATE DESC
+	</select>
+
+</mapper>

@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+#bodyarea {
+    width: 1024px;
+    height: 100%;
+    margin: auto;
+}

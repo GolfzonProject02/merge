@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="worktalk.com.host.repository.RoomDAOimpl">
+
+	<insert id="SQL_INSERT_ROOM"
+	parameterType="worktalk.com.host.domain.Room">
+	INSERT INTO room
+	(room_num,space_num,room_type,room_name,room_price,work_start,work_end,room_img,room_detail)
+	VALUES(seq_room.nextval,#{space_num},#{room_type},#{room_name},#{room_price},#{work_start},#{work_end},#{room_img},#{room_detail})
+	</insert>
+
+	<insert id="SQL_MULTI_INSERT_ROOM" parameterType="java.util.Map">
+		INSERT INTO room (room_num,space_num,room_type,room_name,room_price,work_start,work_end,room_img,room_detail)
+		SELECT seq_room.nextval, U.* FROM(
+		<foreach collection="list" item = "room" separator="UNION ALL ">
+		SELECT
+		#{room.space_num},#{room.room_type},#{room.room_name},#{room.room_price},#{room.work_start},#{room.work_end},
+		#{room.room_img},#{room.room_detail}
+		FROM DUAL
+		</foreach>) U
+	</insert>
+
+	<select id="SQL_SELECT_ALL_ROOM" resultType="worktalk.com.host.domain.Room"
+		parameterType="worktalk.com.host.domain.Room">
+		SELECT * FROM room WHERE space_num = #{space_num}
+		ORDER BY room_num DESC
+	</select>
+</mapper>

@@ -1,0 +1,162 @@
+/* 공통 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.title {
+    font-size: 30px;
+    margin-top: 0;
+}
+#bodyarea {
+    width: 1024px;
+    height: 700px;
+    margin: auto;
+    background-color: rgba(221, 221, 221, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* 로그인 */
+#loginContentBox {
+    background-color: rgb(165, 184, 224);
+    width: 600px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.loginContent {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+}
+/* 디자인 */
+.submit_label {
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(89, 89, 212);
+    color: white;
+    line-height: 30px;
+    border: 0;
+    border-radius: 5px;
+}
+/* 효과 */
+.submit_label{
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+.submit_label:hover, .submit_label:focus, .submit_label:active {
+    box-shadow: 0 0 8px rgba(7, 42, 109, 0.6);
+    background-color: rgba(89, 89, 212, 0.404);
+}
+#strong_btn {
+    cursor: pointer;
+}
+#strong_btn:hover {
+    color: blue;
+}
+
+/* 회원가입 */
+#joinBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(165, 184, 224);
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    position: relative;
+}
+#joinContentBox{
+    width: 380px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.479);
+    border-radius: 20px;
+    position: relative;
+    padding: 20px;
+}
+.inputBox{
+    height: 30px;
+    margin: 10px 0px;
+    border: 0;
+    border-radius: 5px;
+}
+/* 이메일 */
+#emailID {
+    width: 170px;
+}
+#emailAdress {
+    width: 100px;
+}
+.mail-check-input {
+    width: 200px;
+}
+/* 체크버튼 */
+.Check-Btn_label{
+    padding: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(89, 89, 212);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* 비밀번호 */
+.password{
+    width: 300px;
+}
+
+/* 전화번호 */
+.telFirst{
+    width: 70px;
+    text-align: center;
+}
+.telBox{
+    width: 100px;
+    text-align: center;
+}
+.telBox::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* 회원가입 제출 */
+.join_submit {
+    padding: 3px;
+    width: 370px;
+    float: left;
+}
+#close_img{
+    position: absolute;
+    width: 30px;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+#close_img:hover{
+    width: 35px;
+    right: 13px;
+    top: 13px;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:jdbc/oracle.properties</value>
+		</property>
+	</bean>
+
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="${oracle.DRIVER_NAME}"></property>
+		<property name="url" value="${oracle.URL}"></property>
+		<property name="username" value="${oracle.USER}"></property>
+		<property name="password" value="${oracle.PASSWORD}"></property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"></property>
+		<property name="mapperLocations">
+			<list></list>
+		</property>
+	</bean>
+
+	<bean id="SqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean"></constructor-arg>
+	</bean>
+
+	<!-- id=multipartResolver : 지정된 아이디! 변경불가 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="-1"></property>
+	</bean>
+	
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+		<property name="contentType" value="application/json;charset=UTF-8"></property>
+	</bean>	
+		
+</beans>
