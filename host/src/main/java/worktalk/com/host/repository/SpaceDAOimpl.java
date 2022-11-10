@@ -60,9 +60,9 @@ public class SpaceDAOimpl implements SpaceDAO {
 	}
 
 	@Override
-	public List<Space> selectAll() {
+	public List<Space> selectAll(String host) {
 		logger.info("selectAll()...");
-		List<Space> space_list = sqlSession.selectList("SQL_SELECT_ALL_SPACE");
+		List<Space> space_list = sqlSession.selectList("SQL_SELECT_ALL_SPACE", host);
 
 		return space_list;
 	}

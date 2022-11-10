@@ -115,7 +115,7 @@
                             <p class="user_review_Date">${review.rc_date}</p>
                             <button class="review_updateBtn" id="글번호">수정</button>
                             <button class="review_deleteBtn" id="글번호">삭제</button>
-                            <textarea name="reviewText" class="reviewText" readonly>내용</textarea>
+                            <textarea name="reviewText" class="reviewText" readonly>${review.review}</textarea>
                             <input type="text" class="review_num" value="리뷰번호" hidden>
                         </div>
                         <!-- c-if문 출력 -->

@@ -23,6 +23,26 @@
 	
 	<context:component-scan base-package="worktalk.com.user" />
 	
+	<!-- Initializing interceptors -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/*.do"/>
+			<beans:bean class="worktalk.com.user.controller.interceptor.UserInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/reservation/*.do"/>
+			<beans:bean class="worktalk.com.user.controller.interceptor.ReservationInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/payment/*.do"/>
+			<beans:bean class="worktalk.com.user.controller.interceptor.PaymentInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/mypage/*.do"/>
+			<beans:bean class="worktalk.com.user.controller.interceptor.MypageInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 </beans:beans>

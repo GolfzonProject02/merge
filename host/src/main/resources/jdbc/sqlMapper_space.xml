@@ -35,14 +35,16 @@
 		</select>
 
 	<select id="SQL_SELECT_ALL_SPACE" resultType="worktalk.com.host.domain.Space"
-		parameterType="worktalk.com.host.domain.Space">
-		SELECT space_num,host,space_name,space_detail,postcode,
-		substr(address,0,instr(address,'시')) as address,
-		detail_address,reg_code,space_type,space_status,space_img FROM space ORDER BY space_num DESC
-	</select>
+      parameterType="worktalk.com.host.domain.Space">
+      SELECT space_num,host,space_name,space_detail,postcode,
+      substr(address,0,instr(address,'시')) as address,
+      detail_address,reg_code,space_type,space_status,space_img FROM space 
+      where host=#{host}
+      ORDER BY space_num DESC
+   </select>
 
 <!-- 		사무공간 검색창에 키워드검색 : 사무공간명 or 주소 or 세부공간명과 일치하는 키워드 검색하기 -->
-		<select id="SQL_SEARCH_LIST_SPACE" resultType="worktalk.com.host.domain.Space"
+	<select id="SQL_SEARCH_LIST_SPACE" resultType="worktalk.com.host.domain.Space"
 		parameterType="hashmap">
 		select distinct s.* from space s left join room r on s.space_num = r.space_num 
 		where space_name like #{searchWord} or address like #{searchWord} or room_name like #{searchWord} order by s.space_num desc

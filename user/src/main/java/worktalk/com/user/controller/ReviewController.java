@@ -1,5 +1,7 @@
 package worktalk.com.user.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ import worktalk.com.user.service.ReviewService;
 public class ReviewController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
+	
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	ReviewService service;
@@ -45,19 +50,25 @@ public class ReviewController {
 //		return "customerCenter/customerCenter";
 //	}
 	
-	//문의 작성
-	@RequestMapping(value = "/mypage/review_insert.do", method = RequestMethod.POST)
-	public String insert(Review review) {
-		logger.info("Welcome insertOK...");
-		logger.info("{}", review);
-		// vo에 맵핑을 위한 빈 등록-root-context.xml << multipartResolver필요
-		review = service_file.getVO(review);
-		
-		int result = service.insert(review);
-		logger.info("result : {}", result);
-			return "redirect:reviewqna.do";
-		
-	}
+	// 문의 작성
+	   @RequestMapping(value = "/mypage/review_insert.do", method = RequestMethod.POST)
+	   public String insert(String writer, Review review) {
+	      logger.info("Welcome insertOK...");
+	      logger.info("{}", review);
+	      writer = (String) session.getAttribute("user_name");
+
+	      if (writer == null) {
+	         return "login/login";
+	      } else {
+	         logger.info("writer : {}", writer);
+	         review = service_file.getVO(review);
+
+	         int result = service.insert(review);
+	         logger.info("result : {}", result);
+	         return "redirect:reviewqna.do";
+
+	      }
+	   }
 	
 	//문의 수정
 //	@RequestMapping(value = "/mypage/customercenter_update.do", method = RequestMethod.POST)

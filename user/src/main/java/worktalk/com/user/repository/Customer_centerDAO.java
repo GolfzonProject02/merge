@@ -12,7 +12,8 @@ public interface Customer_centerDAO {
 
 	public int delete(Customer_center customer_center);
 
-	public List<Customer_center> selectAll();
+	public List<Customer_center> findByWriter(String writer);
 
 	public List<Customer_center> searchList(String searchKey, String searchWord);
+	
 }

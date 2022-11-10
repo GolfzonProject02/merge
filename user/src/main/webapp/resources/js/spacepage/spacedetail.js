@@ -491,7 +491,6 @@ $('#qna_insert_btn').click(function(){
         <div id="qna_insert">
             <p>문의작성</p>
             <form action="qna_insert.do" method="post">
-               <input type="text" name="title" id="qna_title" placeholder="문의 제목을 작성해 주세요.">
                <select name="type" class="sort_box" id="reservation">
                     <option value="0" hidden>문의종류</option>
                     <option value="2">예약</option>

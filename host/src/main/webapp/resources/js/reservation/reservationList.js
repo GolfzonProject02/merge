@@ -77,7 +77,7 @@ $('.reservation').on('click','#cancelOK_button',function(){
     	console.log("여기");
         $.ajax({
             type : "post",
-            url : '/host/reservation/cancel.do',
+            url : '/host/backoffice/reservation/cancel.do',
             data : {
             	r_num : r_num,
             	r_date : r_date,

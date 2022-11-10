@@ -12,7 +12,7 @@ function menutabClose(login) {
 }
 
 $(document).ready(function(){
-	let user = $('#loginOK').text();
+   let user = $('#loginOK').text();
     $('#login').after(`
         <div id="mypage_package">
            <div>
@@ -22,7 +22,7 @@ $(document).ready(function(){
                </a>
            </div>
            <div>
-               <a href="이용후기 Q&A관리 페이지">
+               <a href="http://localhost:8100/user/mypage/reviewqna.do">
                <img src="resources/css/image/icon/qna.png"><br>
                <p>이용후기<br>Q&A 관리</p>
                </a>
@@ -36,7 +36,7 @@ $(document).ready(function(){
        </div>
        <div id="menutab_bottom">
            <div class="menutab_bottom_item">
-               <a href="1:1문의 페이지">
+               <a href="http://localhost:8100/user/mypage/customercenter.do">
                    1:1문의
                </a>
            </div>
