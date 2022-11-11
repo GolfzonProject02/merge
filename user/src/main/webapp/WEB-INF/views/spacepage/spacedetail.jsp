@@ -54,10 +54,10 @@
     </div>
     <div id="body">
         <div id="bodyarea">
-            <P id="spaceTitle">강남 공간 1호</P>
+            <P id="spaceTitle">${space2.space_name}</P>
             <div id="detail_top">
-                <div class="slides_img number_slides_img">
-                    <div><img src="resources/css/image/space/dummy2.jpg"></div>
+                <div class="slides_img ${space2.space_num}_slides_img">
+                    <div><img alt="${space2.space_img}" src="http://localhost:8200/host/resources/upload/space/${space2.space_img}"></div>
                     <div><img src="resources/css/image/space/dummy1.jpg"></div>
                     <div><img src="resources/css/image/space/dummy3.jpg"></div>
                 </div>
@@ -68,9 +68,8 @@
                 <div id="mapArea">
                     <div id="map" style="width:350px;height:350px;z-index: -1;"></div>
                     <div id="space_info">
-                        <p>서울특별시 00구 00동 000</p>
-                        <p>호스트 : 꾸러기</p>
-                        <p>연락처? 이메일?</p>
+                        <p>${space2.address} ${space2.detail_address}</p>
+                        <p>호스트 : ${space2.host}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@
                     <div id="detailContent">
                         <div id="spaceItro">
                             <p>공간소개</p>
-                            <textarea name="spcaeItro" class="spaceItroText" readonly>우리공간은 공간소개 강남1호점입니다.</textarea>
+                            <textarea name="spcaeItro" class="spaceItroText" readonly>${space2.space_detail}</textarea>
                         </div>
                         <div id="spaceNote">
                             <p>유의사항</p>
@@ -130,78 +129,55 @@
                             <P id="reviewsGradeAvg" style="font-size: 15px;"></P>
                             <div id="reviews">
                                 <!-- 출력문... -->
+                                <c:forEach var="review" items="${review_list}">
                                 <div class="review_box">
                                     <div class="review">
-                                        <p>작성자</p>
-                                        <p class="writeDate">작성일</p>
+                                        <p>${review.writer}</p>
+                                        <p class="writeDate">${review.rv_date}</p>
                                         <div class="reviewGrade">
                                             <img src="./resources/css/image/icon/reveiwGrade.png"/>
                                         </div>
                                         <div>
                                             <button class="insertBtn" id="admin_update">답글</button>
                                         </div>
-                                        <div class="reviewGradeColor"  value="3.5">
+                                        <div class="reviewGradeColor"  value="${review.grade}">
                                             <img src="./resources/css/image/icon/reveiwGradeColor.png" />
                                         </div>
                                         <!-- admin은 리뷰아이디로 계정으로 접근시만 보이도록... -->
-                                        <textarea name="reviewText" class="reviewText" readonly>내용</textarea>
+                                        <textarea name="reviewText" class="reviewText" readonly>${review.review}</textarea>
                                         <div class="reviewImg">
-                                            <img src="./resources/css/image/space/dummy1.jpg">
-                                            <img src="./resources/css/image/space/dummy2.jpg">
-                                            <img src="./resources/css/image/space/dummy3.jpg">
+                                            <div><img alt="${review.imgname}" src="/resources/upload/space/${review.imgname}"></div>
                                         </div>
                                     </div>
                                     <div class="reviewAnser">
                                     </div>
                                 </div>
-                                <div class="review_box">
-                                    <div class="review">
-                                        <p>작성자</p>
-                                        <p class="writeDate">작성일</p>
-                                        <div class="reviewGrade">
-                                            <img src="./resources/css/image/icon/reveiwGrade.png"/>
-                                        </div>
-                                        <div class="reviewGradeColor" value="1">
-                                            <img src="./resources/css/image/icon/reveiwGradeColor.png" />
-                                        </div>
-                                        <!-- admin은 리뷰아이디로 계정으로 접근시만 보이도록... -->
-                                        <textarea name="reviewText" class="reviewText" readonly>내용</textarea>
-                                        <div class="reviewImg">
-                                            <img src="./resources/css/image/space/dummy1.jpg">
-                                            <img src="./resources/css/image/space/dummy2.jpg">
-                                            <img src="./resources/css/image/space/dummy3.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="reviewAnser">
-                                        <p class="reviewAnser_title">호스트의 답글</p>
-                                        <p class="writeDate">작성일</p>
-                                        <div>
-                                            <button class="updateBtn" id="admin_update">수정</button>
-                                            <button class="deleteBtn" id="admin_delelte">삭제</button>
-                                        </div>
-                                        <textarea name="reviewText" class="reviewText" readonly>내용</textarea>
-                                    </div>
-                                </div>
+                                </c:forEach>
+                                
                             </div>
                         </div>
                     </div>
                 </dvi>
                 <dvi id="detail_bottom_right">
+                 <c:forEach var="room" items="${room_list}">
                     <div id="rBox">
                         <p>세부공간 선택</p>
-                        <div class="room">
-                            <label><input type="radio" name="room" id="21" class="reservationRoom">코알라</label>
-                            <p class="roomType room1" value="회의실(4인)"></p>
+                       <div id="roomImgBox" class="room1_slides_img">
+                            <div><img alt="${room.room_img}" src="http://localhost:8200/host/resources/upload/room/${room.room_img}"></div>
+                            <div><img class="roomImg" src="../resources/css/image/space/dummy1.jpg"></div>
+                            <div><img class="roomImg" src="../resources/css/image/space/dummy3.jpg"></div>
                         </div>
-                        <div class="room room2">
-                            <label><input type="radio" name="room" id="19" class="reservationRoom">코끼리</label>
-                            <p class="roomType" value="회의실(6인)"></p>
+                        <div class="roomController">
+                            <button type="button" class="roomPrev" onclick="prev('room1');">&lang;</button>
+                            <button type="button" class="roomNext" onclick="next('room1');">&rang;</button>
                         </div>
-                        <div class="room room3">
-                            <label><input type="radio" name="room" id="20" class="reservationRoom">기린</label>
-                            <p class="roomType" value="회의실(8~10인)"></p>
+                        <div id="roomInfo">
+                            <p style="float:left">공간유형 : ${room.room_type}</p><br>
+                            <p style="float: left">운영시간 : ${room.work_start} ~ ${room.work_end} 시</p>
+                            <p style="float: left">수용인원 : 최소 1명 ~ 최대 4인</p>
                         </div>
                     </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

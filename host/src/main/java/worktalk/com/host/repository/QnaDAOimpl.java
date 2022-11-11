@@ -21,35 +21,6 @@ public class QnaDAOimpl implements QnaDAO {
 		logger.info("QNAimpl()....");
 	}
 	
-//	@Override
-//	public int insert(Qna qna) {
-//		logger.info("insert()....");
-//		logger.info("{}", qna);
-//		int flag = sqlSession.insert("SQL_INSERT_QNA", qna);
-//
-//		return flag;
-//	}
-//
-//	@Override
-//	public int update(Qna qna) {
-//		logger.info("update()....");
-//		logger.info("{}", qna);
-//
-//		int flag = sqlSession.update("SQL_UPDATE_QNA", qna);
-//
-//		return flag;
-//	}
-//
-//	@Override
-//	public int delete(Qna qna) {
-//		logger.info("delete()....");
-//		logger.info("{}", qna);
-//
-//		int flag = sqlSession.delete("SQL_DELETE_QNA", qna);
-//
-//		return flag;
-//	}
-
 	@Override
 	public List<Qna> findQnaBySpaceNum(long space_num) {
 		logger.info("selectAll()....");

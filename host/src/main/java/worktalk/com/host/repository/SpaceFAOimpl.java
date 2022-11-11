@@ -25,7 +25,6 @@ public class SpaceFAOimpl implements SpaceFAO {
 		logger.info("getVO....");
 		logger.info("{}", space);
 
-		// vo에 맵핑을 위한 빈등록-root-context.xml << multipartResolver
 		logger.info("{} byte", space.getMultipartFile().getSize());
 
 		if (space.getMultipartFile().getSize() > 0) { 

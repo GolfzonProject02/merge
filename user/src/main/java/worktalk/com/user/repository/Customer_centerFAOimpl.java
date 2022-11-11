@@ -1,11 +1,8 @@
 package worktalk.com.user.repository;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
@@ -29,7 +26,6 @@ public class Customer_centerFAOimpl implements Customer_centerFAO {
 		logger.info("getVO....");
 		logger.info("{}", customer_center);
 
-		// vo에 맵핑을 위한 빈등록-root-context.xml << multipartResolver
 		logger.info("{} byte", customer_center.getMultipartFile().getSize());
 
 		if (customer_center.getMultipartFile().getSize() > 0) { 

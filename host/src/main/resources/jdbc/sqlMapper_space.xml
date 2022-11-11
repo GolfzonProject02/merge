@@ -38,7 +38,10 @@
 		parameterType="worktalk.com.host.domain.Space">
 		SELECT space_num,host,space_name,space_detail,postcode,
 		substr(address,0,instr(address,'시')) as address,
-		detail_address,reg_code,space_type,space_status,space_img FROM space ORDER BY space_num DESC
+		detail_address,reg_code,space_type,space_status,space_img 
+		FROM space 
+		where host=#{host}
+		ORDER BY space_num DESC
 	</select>
 
 <!-- 		사무공간 검색창에 키워드검색 : 사무공간명 or 주소 or 세부공간명과 일치하는 키워드 검색하기 -->
@@ -63,7 +66,7 @@
 <!-- 	<select id="SQL_FIND_REVIEW" resultType="worktalk.com.host.domain.Review" -->
 <!-- 		parameterType="worktalk.com.host.domain.Review"> -->
 <!-- 		SELECT * FROM review WHERE space_num = #{space_num} -->
-<!-- 		ORDER BY q_num DESC -->
+<!-- 		ORDER BY r_num DESC -->
 <!-- 	</select> -->
 	
 </mapper>

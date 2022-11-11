@@ -20,7 +20,7 @@
 <body>
     <div id="header">
         <div id="headerarea">
-            <a href="/host/backoffice/main.do">
+            <a href="main.do">
                 <img id="logo" src="../resources/css/image/logo.png">
             </a>
             <form id="searchspace" action="space_searchList.do" method="get">          
@@ -68,7 +68,7 @@
                     <div>
                         <p>(${space2.postcode}) ${space2.address} ${space2.detail_address}</p>
                         <p>호스트 : ${space2.host}</p>
-                        <p>연락처?${space2.tel} 이메일?${space2.email}</p>
+                        <p>연락처 : ${space2.tel} 이메일 : ${space2.email}</p>
                        <a href="/host/backoffice/space_deleteOK.do?space_num=${param.space_num}">등록공간삭제하기</a>
                     </div>
                 </div>

@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>워크토크</title>
-    <link rel="stylesheet" href="resources/css/main.css">
-    <link rel="stylesheet" href="resources/css/header/header.css">
-    <link rel="stylesheet" href="resources/css/footer/footer.css">
-    <link rel="stylesheet" href="resources/css/home/home.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/header/header.css">
+    <link rel="stylesheet" href="../resources/css/footer/footer.css">
+    <link rel="stylesheet" href="../resources/css/home/home.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
@@ -18,15 +18,15 @@
     <div id="header">
         <div id="headerarea">
             <a href="/host/main.do">
-                <img id="logo" src="resources/css/image/logo.png">
+                <img id="logo" src="../resources/css/image/logo.png">
             </a>
             <form id="searchspace" action="space_searchList.do" method="get">
                 <input id="searchText" type="text" name="searchWord">
-                <input id="searchIcon"  type="image" src="resources/css/image/icon/search-removebg.png">
+                <input id="searchIcon"  type="image" src="../resources/css/image/icon/search-removebg.png">
             </form>
-            <img id="menutab_buttom" src="resources/css/image/icon/catalog.png" onclick="menutabOpen()">
+            <img id="menutab_buttom" src="../resources/css/image/icon/catalog.png" onclick="menutabOpen()">
             <div id="menutab">
-                <img id="menutab_close" src="resources/css/image/icon/close.png" onclick="menutabClose()">
+                <img id="menutab_close" src="../resources/css/image/icon/close.png" onclick="menutabClose()">
                 <div id="login">
                 	<c:choose>
                         <c:when test="${host_name == null}">
@@ -59,17 +59,17 @@
                     <div class="space_contant_item">
                         <div class="space_slide">
                             <div class="slides_img ${space.space_num}_slides_img">
-                                <div><img src="/resources/upload/space/${space.space_img}"></div>
+                                <div><img src="../resources/upload/space/${space.space_img}"></div>
                             </div>
                         </div>
                         <a href="/host/backoffice/space_selectOne.do?space_num=${space.space_num}">
                             <div class="space_contant_text">
                                     <p class="space_name">${space.space_name}</p><br>
-                                    <img class="space_adress" src="resources/css/image/icon/location.png">
+                                    <img class="space_adress" src="../resources/css/image/icon/location.png">
                                     <p class="space_adress">${space.address}</p><br>
-                                    <img src="resources/css/image/icon/star.png">
+                                    <img src="../resources/css/image/icon/star.png">
                                     <p class="space_grade">평점</p>
-                                    <img src="resources/css/image/icon/comment.png">
+                                    <img src="../resources/css/image/icon/comment.png">
                                     <p class="space_review">후기</p>
                             </div>
                         </a>
@@ -97,6 +97,6 @@
         </div>
     </div>
 </body>
-<script src="resources/js/header/header.js"></script>
-<script src="resources/js/home/home.js"></script>
+<script src="../resources/js/header/header.js"></script>
+<script src="../resources/js/home/home.js"></script>
 </html>

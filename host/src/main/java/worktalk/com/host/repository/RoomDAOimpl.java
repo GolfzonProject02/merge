@@ -65,12 +65,4 @@ public class RoomDAOimpl implements RoomDAO {
 		return room_list;
 	}
 
-//	@Override
-//	public int insert(Map<String, Object> map) {
-//		logger.info("insert()....");
-//		int flag = sqlSession.insert("SQL_MULTI_INSERT_ROOM", map);
-//		logger.info("{}", map);
-//		return flag;
-//	}
-
 }

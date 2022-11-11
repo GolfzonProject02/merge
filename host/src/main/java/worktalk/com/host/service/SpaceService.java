@@ -36,9 +36,9 @@ public class SpaceService {
 		return dao.delete(space);
 	}
 	
-	public List<Space> selectAll() {
+	public List<Space> selectAll(String host) {
 		logger.info("selectAll()...");
-		return dao.selectAll();
+		return dao.selectAll(host);
 	}
 	
 	public Space selectOne(long space_num) {

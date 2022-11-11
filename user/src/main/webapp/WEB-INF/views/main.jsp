@@ -102,22 +102,22 @@
             </div>
             
             <div id="recommend_space_box">
-                <span id="recommend_space">오늘의 추천 공간</span>
+                <span id="recommend_space">얼리버드에게 추천!</span>
                 <div id="space_contant_all">
                     <!-- 공간 모듈 출력 공간 -->
-                    <c:forEach var="recommend_region" items="${recommend_region_list}">
+                    <c:forEach var="space" items="${space_list}">
                     <div class="space_contant_item">
                         <div class="space_slide">
-                            <div class="slides_img ${recommend_region.space_num}_slides_img">
-                                <div><img src="http://localhost:8200/host/resources/upload/space/${recommend_region.space_img}"></div>
+                            <div class="slides_img ${space.space_num}_slides_img">
+                                <div><img src="http://localhost:8200/host/resources/upload/space/${space.space_img}"></div>
                             </div>
                         </div>
-                        <a href="/user/space_selectOne.do?space_num=${recommend_region.space_num}">
+                        <a href="/user/space_selectOne.do?space_num=${space.space_num}">
                             
                             <div class="space_contant_text">
-                                     <p class="space_name">${recommend_region.space_name}</p><br>
+                                     <p class="space_name">${space.space_name}</p><br>
                                     <img class="space_adress" src="./resources/css/image/icon/location.png">
-                                    <p class="space_adress">${recommend_region.address}</p><br>
+                                    <p class="space_adress">${space.address}</p><br>
                                      <img src="./resources/css/image/icon/star.png">
                                     <p class="space_grade">평점</p>
                                     <img src="./resources/css/image/icon/comment.png">

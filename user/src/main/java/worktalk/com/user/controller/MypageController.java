@@ -2,6 +2,8 @@ package worktalk.com.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +14,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import worktalk.com.user.domain.Customer_center;
 import worktalk.com.user.domain.Review;
+import worktalk.com.user.repository.Customer_centerDAO;
 import worktalk.com.user.repository.QnaDAO;
 import worktalk.com.user.repository.ReviewDAO;
 import worktalk.com.user.service.Customer_centerFileService;
 import worktalk.com.user.service.Customer_centerService;
 
 /**
- * Handles requests for the application home page.
+ * 작성자 : 최수연 
+ * 유저 1대1문의 관리페이지 구현 (1대1문의 CRUD)
  */
 @Controller
 public class MypageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
+	
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	Customer_centerService service;
@@ -32,25 +39,32 @@ public class MypageController {
 	Customer_centerFileService service_file;
 	
 	@Autowired
+	Customer_centerDAO dao;
+	
+	@Autowired
 	QnaDAO q_dao;
 	
 	@Autowired
 	ReviewDAO rv_dao;
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	//1대1문의 페이지
+	//1대1문의관리 페이지
 	@RequestMapping(value = "/mypage/customercenter.do", method = RequestMethod.GET)
-	public String selectAll(Model model) {
+	public String selectAllCC(String writer, Model model) {
 		logger.info("Welcome selectAll");
 		
-		List<Customer_center> cc_boardlist = service.selectAll();
+		writer = (String) session.getAttribute("user_name");
+
+		if (writer == null) {
+			return "login/login";
+		} else {
+		logger.info("writer : {}", writer);
+		List<Customer_center> cc_boardlist = dao.findByWriter(writer);
 		logger.info("cc_boardlist.size() : {}",cc_boardlist.size());
 		
 		model.addAttribute("cc_boardlist",cc_boardlist);
 
 		return "customerCenter/customerCenter";
+		}
 	}
 	
 	//문의 작성
@@ -58,7 +72,6 @@ public class MypageController {
 	public String insert(Customer_center customer_center) {
 		logger.info("Welcome insertOK...");
 		logger.info("{}", customer_center);
-		// vo에 맵핑을 위한 빈 등록-root-context.xml << multipartResolver필요
 		customer_center = service_file.getVO(customer_center);
 		
 		int result = service.insert(customer_center);
@@ -109,19 +122,25 @@ public class MypageController {
 		model.addAttribute("cc_boardlist", cc_boardlist);
 		
 		return "customerCenter/customerCenter";
-//		return "mypage/selectAll";
 	}
 
-	//qna관리 페이지
+	//Q&A관리 페이지
 			@RequestMapping(value = "/mypage/reviewqna.do", method = RequestMethod.GET)
-			public String selectAll(Model model, String writer) {
-				logger.info("Welcome selectAll");
+			public String review(Model model, String writer) {
+				logger.info("Welcome review");
 				
+				writer = (String) session.getAttribute("user_name");
+
+				if (writer == null) {
+					return "login/login";
+				} else {
+				logger.info("writer : {}", writer);
 				List<Review> review_list = rv_dao.findByName(writer);
 				logger.info("review_list.size() : {}",review_list.size());
 				
 				model.addAttribute("review_list",review_list);
 				
 				return "reviewqna/reviewqna";
+				}
 			}
 }

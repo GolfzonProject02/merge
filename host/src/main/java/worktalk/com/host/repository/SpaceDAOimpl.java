@@ -60,9 +60,9 @@ public class SpaceDAOimpl implements SpaceDAO {
 	}
 
 	@Override
-	public List<Space> selectAll() {
+	public List<Space> selectAll(String host) {
 		logger.info("selectAll()...");
-		List<Space> space_list = sqlSession.selectList("SQL_SELECT_ALL_SPACE");
+		List<Space> space_list = sqlSession.selectList("SQL_SELECT_ALL_SPACE",host);
 
 		return space_list;
 	}
@@ -70,11 +70,9 @@ public class SpaceDAOimpl implements SpaceDAO {
 	@Override
 	public List<Space> searchList(String searchWord) {
 		logger.info("searchList()....");
-//		logger.info("searchKey:{}",searchKey);
 		logger.info("searchWord:{}",searchWord);
 		
 		Map<String,String> map = new HashMap<String, String>();
-//		map.put("searchKey", searchKey);
 		map.put("searchWord", "%"+searchWord+"%");
 		
 		List<Space> space_list = sqlSession.selectList("SQL_SEARCH_LIST_SPACE",map);

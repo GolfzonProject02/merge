@@ -54,9 +54,9 @@ public class Customer_centerDAOimpl implements Customer_centerDAO {
 	}
 
 	@Override
-	public List<Customer_center> selectAll() {
+	public List<Customer_center> findByWriter(String writer) {
 		logger.info("selectAll()....");
-		List<Customer_center> cc_boardlist = sqlSession.selectList("SQL_SELECT_ALL_CC");
+		List<Customer_center> cc_boardlist = sqlSession.selectList("SQL_SELECT_ALL_CC",writer);
 
 		return cc_boardlist;
 	}

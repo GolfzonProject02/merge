@@ -22,7 +22,7 @@ public class Customer_centerFileService {
 
 	public Customer_center getVO(Customer_center customer_center) {
 		logger.info("getVO()...");
-		return fao.getVO(customer_center);//return 1을 받고 controller에 1보내줌
+		return fao.getVO(customer_center);
 	}
 	
 }
