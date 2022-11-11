@@ -26,51 +26,21 @@
             <div id="menutab">
                 <img id="menutab_close" src="../resources/css/image/icon/close.png" onclick="menutabClose()">
                 <div id="login">
-                </div>
-                <div id="mypage_package">
-                    <div>
-                        <a href="예약리스트 페이지">
-                        <img src="../resources/css/image/icon/reservation.png"><br>
-                        <p>예약리스트</p>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="이용후기 Q&A관리 페이지">
-                        <img src="../resources/css/image/icon/qna.png"><br>
-                        <p>이용후기<br>Q&A 관리</p>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="결제내역 마일리지 페이지">
-                        <img src="../resources/css/image/icon/payment.png"><br>
-                        <p>결제내역<br>마일리지</p>
-                        </a>
-                    </div>
-                </div>
-                <div id="menutab_bottom">
-                    <div class="menutab_bottom_item">
-                        <a href="1:1문의 페이지">
-                            1:1문의
-                        </a>
-                    </div>
-                    <div class="menutab_bottom_item">
-                        <a href="공지사항 페이지">
-                            공지사항
-                        </a>
-                    </div>
-                    <div class="menutab_bottom_item">
-                        <a href="이용가이드">
-                            이용가이드
-                        </a>
-                    </div>
-                    <div class="menutab_bottom_item">
-                        <a href="워크토크 소개">
-                            워크토크 소개
-                        </a>
-                    </div>
-                    <div class="menutab_bottom_item">
-                        <a>공급자페이지로 이동</a>
-                    </div>
+                	<c:choose>
+                        <c:when test="${host_name == null}">
+                            <a href="login.do">
+                                <p id="loginOK">로그인 / 회원가입</p>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="/host/mypage.do">
+                                <p id="loginOK">${host_name}</p>
+                            </a>
+                            <a href="/host/logout.do">
+                                <p id="logout" style="margin-left:10px">로그아웃</p>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
@@ -124,4 +94,5 @@
     </div>
 </body>
 <script src="../resources/js/roomPage.js"></script>
+<script src="resources/js/header/header.js"></script>
 </html>

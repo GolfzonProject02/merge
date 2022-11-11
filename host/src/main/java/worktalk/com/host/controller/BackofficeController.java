@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.GsonBuilder;
 
 import worktalk.com.host.domain.Qna;
-import worktalk.com.host.domain.QnaComment;
 import worktalk.com.host.domain.Room;
 import worktalk.com.host.domain.Space;
 import worktalk.com.host.repository.QnaCommentDAO;
@@ -63,16 +62,24 @@ public class BackofficeController {
 	
 	// 공간전체목록페이지
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String selectAll(Model model) {
+	public String selectAll(String host, Model model) {
 		logger.info("Welcome selectAll!");
+		
+		host = (String)session.getAttribute("host_name");
+		
+		if (host == null) {
+			return "login/login";
+		} else {
+			logger.info("host_name: {}", host);
+			List<Space> space_list = service.selectAll(host);
+			logger.info("space_list.size() : {}", space_list.size());
+			logger.info("space_list : {}", space_list);
+			
+			model.addAttribute("space_list", space_list);
+			
+			return "main";
+		}
 
-		List<Space> space_list = service.selectAll();
-		logger.info("space_list.size() : {}", space_list.size());
-		logger.info("space_list : {}", space_list);
-
-		model.addAttribute("space_list", space_list);
-
-		return "main";
 //		return "backoffice/space/space_selectAll";
 	}
 

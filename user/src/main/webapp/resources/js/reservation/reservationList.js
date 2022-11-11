@@ -100,3 +100,59 @@ $('.reservation').on('click','#cancelOK_button',function(){
         })
     }
 })
+
+// 후기작성
+$('.reservation').on('click','.reviewInsert',function(){
+    $('#review_update_box').detach();
+    let r_num = $(this).parent().children('.r_num').val();
+    let room = $(this).parent().children('.grade_box').children('.user_review_room').text();
+    let text = $(this).parent().children('.reviewText').text();
+    let review_num = $(this).parent().children('.review_num').val();
+    let grade = $(this).parent().children('.grade_box').children('.reviewGradeColor').attr('value');
+    let input_radio = ""
+    console.log(room,text,review_num,grade);
+    $(this).after(`
+        <div id="review_update_box">
+            <p>후기작성</p>
+    		<form action="http://localhost:8100/user/mypage/review_insert.do" method="post" enctype="multipart/form-data">
+            <div class="grade_wrap">
+                <div class="insert_grade_box">
+                    <label for="grade_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+                    <label for="grade_2" class="label_star" title="1"><span class="blind">1점</span></label>
+                    <label for="grade_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+                    <label for="grade_4" class="label_star" title="2"><span class="blind">2점</span></label>
+                    <label for="grade_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+                    <label for="grade_6" class="label_star" title="3"><span class="blind">3점</span></label>
+                    <label for="grade_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+                    <label for="grade_8" class="label_star" title="4"><span class="blind">4점</span></label>
+                    <label for="grade_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+                    <label for="grade_10" class="label_star" title="5"><span class="blind">5점</span></label>
+                    <input type="radio" name="grade" value="0.5" id="grade_1" class="star_radio"/>
+                    <input type="radio" name="grade" value="1" id="grade_2" class="star_radio"/>
+                    <input type="radio" name="grade" value="1.5" id="grade_3" class="star_radio"/>
+                    <input type="radio" name="grade" value="2" id="grade_4" class="star_radio"/>
+                    <input type="radio" name="grade" value="2.5" id="grade_5" class="star_radio"/>
+                    <input type="radio" name="grade" value="3" id="grade_6" class="star_radio"/>
+                    <input type="radio" name="grade" value="3.5" id="grade_7" class="star_radio"/>
+                    <input type="radio" name="grade" value="4" id="grade_8" class="star_radio"/>
+                    <input type="radio" name="grade" value="4.5" id="grade_9" class="star_radio"/>
+                    <input type="radio" name="grade" value="5" id="grade_10" class="star_radio"/>
+                    <span class="grade_bg"></span>
+                </div>
+            </div>
+            <textarea name="review" id="review_update_content"></textarea>
+            <button id="review_update_close">닫기</button>
+            <input type="file" name="multipartFile" id="imgname">
+            <input type="submit" id="review_update_submit" value="작성">
+            <input type="text' id="writer" name="writer" value="사용자" hidden>
+            <input type="text" name="r_num" class="r_num" value="${r_num}" hidden>
+        </form>
+        </div>
+    `)
+    $('input:radio[name=grade]:input[value=' + grade + ']').attr("checked", true);
+})
+
+$('#review_selectAll').on('click','#review_update_close',function(){
+    console.log("클릭");
+    $('#review_update_box').detach();
+})

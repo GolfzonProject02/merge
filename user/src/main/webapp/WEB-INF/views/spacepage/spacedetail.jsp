@@ -54,7 +54,7 @@
     </div>
     <div id="body">
         <div id="bodyarea">
-            <P id="spaceTitle">강남 공간 1호</P>
+            <P id="spaceTitle">${space2.space_name}</P>
             <div id="detail_top">
                 <div class="slides_img number_slides_img">
                     <div><img src="resources/css/image/space/dummy2.jpg"></div>
@@ -68,9 +68,8 @@
                 <div id="mapArea">
                     <div id="map" style="width:350px;height:350px;z-index: -1;"></div>
                     <div id="space_info">
-                        <p>서울특별시 00구 00동 000</p>
-                        <p>호스트 : 꾸러기</p>
-                        <p>연락처? 이메일?</p>
+                        <p>${space2.address} ${space2.detail_address}</p>
+                        <p>호스트 : ${space2.host}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@
                     <div id="detailContent">
                         <div id="spaceItro">
                             <p>공간소개</p>
-                            <textarea name="spcaeItro" class="spaceItroText" readonly>우리공간은 공간소개 강남1호점입니다.</textarea>
+                            <textarea name="spcaeItro" class="spaceItroText" readonly>${space2.space_detail}</textarea>
                         </div>
                         <div id="spaceNote">
                             <p>유의사항</p>

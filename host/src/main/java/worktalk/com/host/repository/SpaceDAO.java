@@ -16,7 +16,7 @@ public interface SpaceDAO {
 
 	public Space selectOne(long space_num);
 
-	public List<Space> selectAll();
+	public List<Space> selectAll(String host);
 
 	public List<Space> searchList(String searchWord);
 

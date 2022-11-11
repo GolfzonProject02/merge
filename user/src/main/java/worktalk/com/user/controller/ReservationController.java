@@ -75,7 +75,8 @@ public class ReservationController {
 				return "payment/cancel_page.do?imp_uid="+pay.getImp_uid()+"&space_num="+result_reservation.getSpace_num();
 			} else {
 				logger.info("headding findByNum....");
-				String result = "reservation/findByNum.do?r_num="+result_reservation.getR_num();
+//				String result = "reservation/findByNum.do?r_num="+result_reservation.getR_num();
+				String result = "reservation/findByName.do";
 				logger.info(result);
 				return result;
 			}

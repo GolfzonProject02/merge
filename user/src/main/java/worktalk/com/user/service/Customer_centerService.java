@@ -33,10 +33,6 @@ public class Customer_centerService {
 		logger.info("delete()...");
 		return dao.delete(customer_center);
 	}
-	public List<Customer_center> selectAll() {
-		logger.info("selectAll()...");
-		return dao.selectAll();
-	}	
 	public List<Customer_center> searchList(String searchKey, String searchWord) {
 		logger.info("searchList()...");
 		return dao.searchList(searchKey, searchWord);

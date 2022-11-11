@@ -124,7 +124,7 @@ $('.qna_updateBtn').click(function(){
                 <input type="file" name="multipartFile" id="qna_imgname">
                 <input type="submit" id="qna_update_submit" value="수정">
                 <input type="text" name="qna_num" id="qna_num" value="${qna_num}" hidden>
-                <input type="text' id="writer" name="writer" value="kim" hidden>
+                <input type="text' id="writer" name="writer" value="사용자" hidden>
             </form>
         </div>
     `)
@@ -147,8 +147,7 @@ $('.review_updateBtn').click(function(){
     $(this).after(`
         <div id="review_update_box">
             <p>후기수정</p>
-            <form action="review_update.do" method="get" enctype="multipart/form-data">
-                <input type="text" name="title" id="review_update_title" value="${room}" readonly>
+            <form action="review_insert.do" method="post" enctype="multipart/form-data">
                 <div class="grade_wrap">
                     <div class="insert_grade_box">
                         <label for="grade_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
@@ -174,12 +173,12 @@ $('.review_updateBtn').click(function(){
                         <span class="grade_bg"></span>
                     </div>
                 </div>
-                <textarea name="content" id="review_update_content">${text}</textarea>
+                <textarea name="review" id="review_update_content">${review}</textarea>
                 <button id="review_update_close">닫기</button>
-                <input type="file" name="multipartFile" id="review_imgname">
+                <input type="file" name="multipartFile" id="imgname">
                 <input type="submit" id="review_update_submit" value="수정">
-                <input type="text" name="review_num" id="review_num" value="${review_num}" hidden>
-                <input type="text' id="writer" name="writer" value="kim" hidden>
+                <input type="text" name="rv_num" id="rv_num" value="${rv_num}" hidden>
+                <input type="text' id="writer" name="writer" value="사용자" hidden>
             </form>
         </div>
     `)
