@@ -22,7 +22,7 @@ $(document).ready(function(){
                 </a>
             </div>
             <div>
-                <a href="이용후기 Q&A관리 페이지">
+                <a href="http://localhost:8200/host/backoffice/payment/findByName.do">
                 <img src="resources/css/image/icon/qna.png"><br>
                 <p>이용후기<br>Q&A 관리</p>
                 </a>

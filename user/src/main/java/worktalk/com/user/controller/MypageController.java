@@ -26,7 +26,7 @@ import worktalk.com.user.service.Customer_centerService;
  */
 @Controller
 public class MypageController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 	
 	@Autowired
@@ -98,24 +98,23 @@ public class MypageController {
 		} else {
 			return "customercenter_update.do";
 		}
+   }
+   
+   //문의 삭제
+   @RequestMapping(value = "/mypage/customercenter_delete.do", method = RequestMethod.GET)
+   public String delete(Customer_center customer_center) {
+      logger.info("Welcome deleteOK");
+      int result = service.delete(customer_center);
+      logger.info("result : {}", result);
 
-	}
-	
-	//문의 삭제
-	@RequestMapping(value = "/mypage/customercenter_delete.do", method = RequestMethod.GET)
-	public String delete(Customer_center customer_center) {
-		logger.info("Welcome deleteOK");
-		int result = service.delete(customer_center);
-		logger.info("result : {}", result);
-
-		return "redirect:customercenter.do";
-	}
-	
-	@RequestMapping(value = "/mypage/customercenter_searchList.do", method = RequestMethod.GET)
-	public String searchList(Model model, String searchKey, String searchWord) {
-		logger.info("Welcome searchList");
-		logger.info("searchKey:{}", searchKey);
-		logger.info("searchWord:{}", searchWord);
+      return "redirect:customercenter.do";
+   }
+   
+   @RequestMapping(value = "/mypage/customercenter_searchList.do", method = RequestMethod.GET)
+   public String searchList(Model model, String searchKey, String searchWord) {
+      logger.info("Welcome searchList");
+      logger.info("searchKey:{}", searchKey);
+      logger.info("searchWord:{}", searchWord);
 
 		List<Customer_center> cc_boardlist = service.searchList(searchKey, searchWord);
 		logger.info("result() : {}", cc_boardlist.size());

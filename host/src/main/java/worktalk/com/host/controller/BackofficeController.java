@@ -67,7 +67,7 @@ public class BackofficeController {
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String selectAll(String host, Model model) {
 		logger.info("Welcome selectAll!");
-
+		
 		host = (String) session.getAttribute("host_name"); // 접속자(호스트)의 사무공간만 출력하기위해 접속자 받아오기
 
 		if (host == null) {

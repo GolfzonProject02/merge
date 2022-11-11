@@ -23,6 +23,22 @@
 	
 	<context:component-scan base-package="worktalk.com.host" />
 	
+	<!-- Initializing interceptors -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/*.do"/>
+			<beans:bean class="worktalk.com.host.controller.interceptor.HostInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/backoffice/*/*.do"/>
+			<beans:bean class="worktalk.com.host.controller.interceptor.BackofficeInterceptor"></beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/mypage/*.do"/>
+			<beans:bean class="worktalk.com.host.controller.interceptor.MypageInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 </beans:beans>

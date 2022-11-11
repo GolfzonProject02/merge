@@ -60,6 +60,7 @@
                         <div class="space_slide">
                             <div class="slides_img ${space.space_num}_slides_img">
                                 <div><img src="../resources/upload/space/${space.space_img}"></div>
+
                             </div>
                         </div>
                         <a href="/host/backoffice/space_selectOne.do?space_num=${space.space_num}">

@@ -27,6 +27,9 @@ public class ReviewController {
 	HttpSession session;
 
 	@Autowired
+	HttpSession session;
+	
+	@Autowired
 	ReviewService service;
 
 	@Autowired
@@ -34,7 +37,6 @@ public class ReviewController {
 
 	@Autowired
 	ReviewDAO rv_dao;
-
 
 	// 이용완료한 사무공간에 대해 후기 작성
 	@RequestMapping(value = "/mypage/review_insert.do", method = RequestMethod.POST)
@@ -55,4 +57,5 @@ public class ReviewController {
 
 		}
 	}
+
 }

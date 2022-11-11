@@ -67,7 +67,7 @@ $('#QNA_insert_btn').click(function(){
                 <button id="close">닫기</button>
                 <input type="file" name="multipartFile" id="imgname">
                 <input type="submit" id="insert_submit" value="제출">
-                <input type="text' id="writer" name="writer" value="kim" hidden>
+                <input type="text' id="writer" name="writer" value="사용자" hidden>
             </form>
         </div>
     `)
@@ -130,7 +130,7 @@ $('.updateBtn').click(function(){
             <button id="close">닫기</button>
             <input type="submit" id="insert_submit" value="수정">
             <input type="text" name="cc_num" id="cc_num" value="${cc_num}" hidden>
-            <input type="text' id="writer" name="writer" value="kim" hidden>
+            <input type="text' id="writer" name="writer" value="사용자" hidden>
         </form>
     </div>
     `)

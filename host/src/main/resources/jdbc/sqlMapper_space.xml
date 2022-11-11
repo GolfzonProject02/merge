@@ -45,7 +45,7 @@
 	</select>
 
 <!-- 		사무공간 검색창에 키워드검색 : 사무공간명 or 주소 or 세부공간명과 일치하는 키워드 검색하기 -->
-		<select id="SQL_SEARCH_LIST_SPACE" resultType="worktalk.com.host.domain.Space"
+	<select id="SQL_SEARCH_LIST_SPACE" resultType="worktalk.com.host.domain.Space"
 		parameterType="hashmap">
 		select distinct s.* from space s left join room r on s.space_num = r.space_num 
 		where space_name like #{searchWord} or address like #{searchWord} or room_name like #{searchWord} order by s.space_num desc

@@ -15,4 +15,5 @@ public interface Customer_centerDAO {
 	public List<Customer_center> findByWriter(String writer); //사용자가 작성한 1대1문의 출력
 
 	public List<Customer_center> searchList(String searchKey, String searchWord); //1대1문의 검색
+
 }

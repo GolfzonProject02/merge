@@ -22,19 +22,18 @@ import worktalk.com.user.service.SpaceService;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	@Autowired
 	HttpSession session;
-	
+
 	@Autowired
 	SpaceService service;
-	
+
 	@Autowired
 	SpaceDAO dao;
-	
-	
+
 	@RequestMapping(value = {"/", "main.do", "home.do"}, method = RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("Welcome main!");
@@ -46,11 +45,11 @@ public class HomeController {
 		
 		model.addAttribute("recommend_region_list", recommend_region_list);
 		model.addAttribute("space_list", space_list);
-		
+
 		logger.info("user_name : {}", session.getAttribute("user_name"));
 		logger.info("host_name : {}", session.getAttribute("host_name"));
 
 		return "main";
 	}
-	
+
 }
