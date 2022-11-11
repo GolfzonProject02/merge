@@ -102,7 +102,7 @@
             </div>
             
             <div id="recommend_space_box">
-                <span id="recommend_space">오늘의 추천 공간</span>
+                <span id="recommend_space">얼리버드에게 추천!</span>
                 <div id="space_contant_all">
                     <!-- 공간 모듈 출력 공간 -->
                     <c:forEach var="space" items="${space_list}">

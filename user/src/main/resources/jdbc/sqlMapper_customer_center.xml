@@ -24,7 +24,9 @@
 
 	<select id="SQL_SELECT_ALL_CC" resultType="worktalk.com.user.domain.Customer_center"
 		parameterType="worktalk.com.user.domain.Customer_center">
-		SELECT * FROM customer_center ORDER BY cc_num DESC
+		SELECT * FROM customer_center 
+		WHERE writer=#{writer}
+		ORDER BY cc_num DESC
 	</select>
 
 	<select id="SQL_SEARCH_LIST_CC" resultType="worktalk.com.user.domain.Customer_center"

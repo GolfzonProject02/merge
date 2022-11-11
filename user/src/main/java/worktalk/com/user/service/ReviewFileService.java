@@ -21,7 +21,7 @@ public class ReviewFileService {
 
 	public Review getVO(Review review) {
 		logger.info("getVO()...");
-		return fao.getVO(review);//return 1을 받고 controller에 1보내줌
+		return fao.getVO(review);
 	}
 	
 }

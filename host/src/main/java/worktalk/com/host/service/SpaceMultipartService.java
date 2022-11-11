@@ -21,7 +21,7 @@ public class SpaceMultipartService {
 
 	public Space getVO(Space space) {
 		logger.info("getVO()...");
-		return fao.getVO(space);//return 1을 받고 controller에 1보내줌
+		return fao.getVO(space);
 	}
 	
 }

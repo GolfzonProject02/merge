@@ -45,17 +45,27 @@
 		ORDER BY q_num DESC
 	</select>
 	
-<!-- 	<select id="SQL_FIND_REVIEW" resultType="worktalk.com.user.domain.Review" -->
-<!-- 		parameterType="worktalk.com.user.domain.Review"> -->
-<!-- 		SELECT * FROM review WHERE space_num = #{space_num} -->
-<!-- 		ORDER BY q_num DESC -->
-<!-- 	</select> -->
+	<select id="SQL_FIND_REVIEW" resultType="worktalk.com.user.domain.Review"
+		parameterType="worktalk.com.user.domain.Review">
+		SELECT r.* FROM review r left join reservation re 
+		on r.r_num = re.r_num left join room
+		on re.room_num = room.room_num WHERE space_num = #{space_num}
+		ORDER BY r.rv_num DESC
+	</select>
 
-		<select id="SQL_RECOMMEND_REGION" resultType="worktalk.com.user.domain.Space"
+		<select id="SQL_RECOMMEND_NEW" resultType="worktalk.com.user.domain.Space"
 		parameterType="hashmap">
-			SELECT space_num,host,space_name,space_detail,postcode,
+			select * from (SELECT space_num,host,space_name,space_detail,postcode,
 		substr(address,0,instr(address,'시')) as address,
-		detail_address,reg_code,space_type,space_status,space_img  FROM space
-			WHERE address like '%춘천%' order by space_name asc
+		detail_address,reg_code,space_type,space_status,space_img 
+		FROM space ORDER BY space_num DESC) <![CDATA[where rownum <=4]]>
+	</select>
+	
+	<select id="SQL_RECOMMEND_REGION" resultType="worktalk.com.user.domain.Space"
+		parameterType="hashmap">
+			select * from (SELECT space_num,host,space_name,space_detail,postcode, substr(address,0,instr(address,'시')) as address,
+		detail_address,reg_code,space_type,space_status,space_img  
+		FROM space WHERE address like '%춘천%' order by space_name asc) 
+		 <![CDATA[where rownum <=4]]>
 	</select>
 </mapper>

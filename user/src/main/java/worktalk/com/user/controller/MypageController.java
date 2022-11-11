@@ -21,87 +21,83 @@ import worktalk.com.user.service.Customer_centerFileService;
 import worktalk.com.user.service.Customer_centerService;
 
 /**
- * Handles requests for the application home page.
+ * 작성자 : 최수연 
+ * 유저 1대1문의 관리페이지 구현 (1대1문의 CRUD)
  */
 @Controller
 public class MypageController {
-   
-   private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
-   
-   @Autowired
-   HttpSession session;
-   
-   @Autowired
-   Customer_centerService service;
 
-   @Autowired
-   Customer_centerFileService service_file;
-   
-   @Autowired
-   Customer_centerDAO dao;
-   
-   @Autowired
-   QnaDAO q_dao;
-   
-   @Autowired
-   ReviewDAO rv_dao;
-   
-   /**
-    * Simply selects the home view to render by returning its name.
-    */
-   //1대1문의 페이지
-   @RequestMapping(value = "/mypage/customercenter.do", method = RequestMethod.GET)
-   public String selectAllCC(String writer, Model model) {
-      logger.info("Welcome selectAll");
-      
-      writer = (String) session.getAttribute("user_name");
+	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
+	
+	@Autowired
+	HttpSession session;
+	
+	@Autowired
+	Customer_centerService service;
 
-      if (writer == null) {
-         return "login/login";
-      } else {
-      logger.info("writer : {}", writer);
-      List<Customer_center> cc_boardlist = dao.findByWriter(writer);
-      logger.info("cc_boardlist.size() : {}",cc_boardlist.size());
-      
-      model.addAttribute("cc_boardlist",cc_boardlist);
+	@Autowired
+	Customer_centerFileService service_file;
+	
+	@Autowired
+	Customer_centerDAO dao;
+	
+	@Autowired
+	QnaDAO q_dao;
+	
+	@Autowired
+	ReviewDAO rv_dao;
+	
+	//1대1문의관리 페이지
+	@RequestMapping(value = "/mypage/customercenter.do", method = RequestMethod.GET)
+	public String selectAllCC(String writer, Model model) {
+		logger.info("Welcome selectAll");
+		
+		writer = (String) session.getAttribute("user_name");
 
-      return "customerCenter/customerCenter";
-      }
-   }
-   
-   //문의 작성
-   @RequestMapping(value = "/mypage/customercenter_insert.do", method = RequestMethod.POST)
-   public String insert(Customer_center customer_center) {
-      logger.info("Welcome insertOK...");
-      logger.info("{}", customer_center);
-      // vo에 맵핑을 위한 빈 등록-root-context.xml << multipartResolver필요
-      customer_center = service_file.getVO(customer_center);
-      
-      int result = service.insert(customer_center);
-      logger.info("result : {}", result);
-      if (result == 1) {
-         return "redirect:customercenter.do";
-      } else {
-         return "redirect:customercenter_insert.do";
-      }
-   }
-   
-   //문의 수정
-   @RequestMapping(value = "/mypage/customercenter_update.do", method = RequestMethod.POST)
-   public String update(Customer_center customer_center) {
-      logger.info("Welcome updateOK");
-      
-      customer_center = service_file.getVO(customer_center);
-      logger.info("{}",customer_center);
-      
-      int result = service.update(customer_center);
-      logger.info("result : {}", result);
-      if (result == 1) {
-         return "redirect:customercenter.do";
-      } else {
-         return "customercenter_update.do";
-      }
+		if (writer == null) {
+			return "login/login";
+		} else {
+		logger.info("writer : {}", writer);
+		List<Customer_center> cc_boardlist = dao.findByWriter(writer);
+		logger.info("cc_boardlist.size() : {}",cc_boardlist.size());
+		
+		model.addAttribute("cc_boardlist",cc_boardlist);
 
+		return "customerCenter/customerCenter";
+		}
+	}
+	
+	//문의 작성
+	@RequestMapping(value = "/mypage/customercenter_insert.do", method = RequestMethod.POST)
+	public String insert(Customer_center customer_center) {
+		logger.info("Welcome insertOK...");
+		logger.info("{}", customer_center);
+		customer_center = service_file.getVO(customer_center);
+		
+		int result = service.insert(customer_center);
+		logger.info("result : {}", result);
+		if (result == 1) {
+			return "redirect:customercenter.do";
+		} else {
+			return "redirect:customercenter_insert.do";
+		}
+	}
+	
+	//문의 수정
+	@RequestMapping(value = "/mypage/customercenter_update.do", method = RequestMethod.POST)
+	public String update(Customer_center customer_center) {
+		logger.info("Welcome updateOK");
+		
+		customer_center = service_file.getVO(customer_center);
+		logger.info("{}",customer_center);
+		
+		int result = service.update(customer_center);
+		logger.info("result : {}", result);
+		if (result == 1) {
+			return "redirect:customercenter.do";
+		} else {
+			return "customercenter_update.do";
+		}
    }
    
    //문의 삭제
@@ -120,31 +116,30 @@ public class MypageController {
       logger.info("searchKey:{}", searchKey);
       logger.info("searchWord:{}", searchWord);
 
-      List<Customer_center> cc_boardlist = service.searchList(searchKey, searchWord);
-      logger.info("result() : {}", cc_boardlist.size());
-      model.addAttribute("cc_boardlist", cc_boardlist);
-      
-      return "customerCenter/customerCenter";
-//      return "mypage/selectAll";
-   }
+		List<Customer_center> cc_boardlist = service.searchList(searchKey, searchWord);
+		logger.info("result() : {}", cc_boardlist.size());
+		model.addAttribute("cc_boardlist", cc_boardlist);
+		
+		return "customerCenter/customerCenter";
+	}
 
-   //qna관리 페이지
-         @RequestMapping(value = "/mypage/reviewqna.do", method = RequestMethod.GET)
-         public String review(Model model, String writer) {
-            logger.info("Welcome review");
-            
-            writer = (String) session.getAttribute("user_name");
+	//Q&A관리 페이지
+			@RequestMapping(value = "/mypage/reviewqna.do", method = RequestMethod.GET)
+			public String review(Model model, String writer) {
+				logger.info("Welcome review");
+				
+				writer = (String) session.getAttribute("user_name");
 
-            if (writer == null) {
-               return "login/login";
-            } else {
-            logger.info("writer : {}", writer);
-            List<Review> review_list = rv_dao.findByName(writer);
-            logger.info("review_list.size() : {}",review_list.size());
-            
-            model.addAttribute("review_list",review_list);
-            
-            return "reviewqna/reviewqna";
-            }
-         }
+				if (writer == null) {
+					return "login/login";
+				} else {
+				logger.info("writer : {}", writer);
+				List<Review> review_list = rv_dao.findByName(writer);
+				logger.info("review_list.size() : {}",review_list.size());
+				
+				model.addAttribute("review_list",review_list);
+				
+				return "reviewqna/reviewqna";
+				}
+			}
 }

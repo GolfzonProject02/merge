@@ -12,7 +12,7 @@ public interface SpaceDAO {
 
 	public List<Space> selectAll();// 사무공간 전체 리스트
 
-	public List<Space> searchList(String searchKey, String searchWord);
+	public List<Space> searchList(String searchKey, String searchWord);// 사무공간 검색
 	
 	public List<Qna> findQna(long space_num);//사무공간 상세페이지 QnA리스트 출력
 
@@ -21,5 +21,7 @@ public interface SpaceDAO {
 	public List<Review> findReview(long space_num);// 사무공간 상세페이지 내 후기리스트 출력
 
 	public List<Space> recommendRegion(); //지역추천 리스트
+	
+	public List<Space> recommendNew(); //신규공간 추천 리스트
 	
 }

@@ -23,12 +23,8 @@ public class RoomMultipartService {
 
 	public Room getVO(Room room) {
 		logger.info("getVO()...");
-		return fao.getVO(room);//return 1을 받고 controller에 1보내줌
+		return fao.getVO(room);
 	}
-	
-//	public Room getVO(Map<String, Room> map) {
-//		logger.info("getVO()...");
-//		return fao.getVO(map);//return 1을 받고 controller에 1보내줌
-//	}
+
 	
 }

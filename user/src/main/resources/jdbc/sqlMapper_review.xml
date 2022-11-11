@@ -11,31 +11,4 @@
 		VALUES(seq_review.nextval,#{r_num},#{writer},#{review},#{grade},#{imgname},localtimestamp)
 	</insert>
 
-	<update id="SQL_UPDATE_RV" parameterType="worktalk.com.user.domain.Review">
-		UPDATE customer_center SET
-		review=#{review},content=#{content},type=#{type},imgname=#{imgname},rv_date=localtimestamp WHERE
-		cc_num=#{cc_num}
-	</update>
-
-	<delete id="SQL_DELETE_RV" parameterType="worktalk.com.user.domain.Review">
-		DELETE FROM customer_center WHERE
-		cc_num=#{cc_num}
-	</delete>
-
-	<select id="SQL_FINDWRITER_RV" resultType="worktalk.com.user.domain.Review"
-		parameterType="worktalk.com.user.domain.Review">
-		SELECT r.*, rc.host, rc.rc_date, NVL(rc.rc_comment,0) rc_comment FROM review r left join review_comment rc on r.rv_num = rc.rv_num 
-		WHERE writer = #{writer}
-		ORDER BY r.rv_num DESC
-	</select>
-
-	<select id="SQL_FINDSPACE_RV" resultType="worktalk.com.user.domain.Review"
-		parameterType="worktalk.com.user.domain.Review">
-		select r.* from review rv left join reservation r
-	      on rv.r_num = r.r_num
-	      left join room
-	      on r.room_num = room.room_num where space_num=#{space_num}
-	      order by rv.r_num desc
-	</select>
-	
 </mapper>

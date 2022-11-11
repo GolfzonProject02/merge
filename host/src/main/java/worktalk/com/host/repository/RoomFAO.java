@@ -8,6 +8,4 @@ public interface RoomFAO {
 
 	public Room getVO(Room room);
 
-//	public Room getVO(Map<String, Room> map);	
-	
 }

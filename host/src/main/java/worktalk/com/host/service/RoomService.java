@@ -21,14 +21,7 @@ public class RoomService {
 	public RoomService() {
 		logger.info("RoomService()...");
 	}
-//	public int insert(Map<String, Object> map) {
-//		logger.info("insert()...");
-//		return dao.insert(map);
-//	}
-//	public int insert(Map<String, Object> map) {
-//		logger.info("insert()...");
-//		return dao.insert(map);
-//	}
+
 	public int insert(Room vo) {
 		logger.info("insert()...");
 		return dao.insert(vo);

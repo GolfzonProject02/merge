@@ -96,4 +96,12 @@ public class SpaceDAOimpl implements SpaceDAO {
 
 		return space_list;
 	}
+	
+	@Override
+	public List<Space> recommendNew() {
+		logger.info("recommendRegion()...");
+		List<Space> space_list = sqlSession.selectList("SQL_RECOMMEND_NEW");
+
+		return space_list;
+	}
 }
