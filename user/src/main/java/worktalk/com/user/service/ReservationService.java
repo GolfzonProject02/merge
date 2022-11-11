@@ -4,6 +4,13 @@ import java.util.List;
 
 import worktalk.com.user.domain.Reservation;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service class for user reservation service
+ *
+ */
+
 public interface ReservationService {
 	
 	public Reservation reserve(Reservation reservation);

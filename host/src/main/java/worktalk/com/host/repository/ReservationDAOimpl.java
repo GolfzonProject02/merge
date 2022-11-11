@@ -12,8 +12,8 @@ import worktalk.com.host.domain.Reservation;
 
 /**
  * 
- * @author Juhee Fred Lee(이주희)
- * Repository class for reservation CRUD
+ * @author Juhee Fred Lee (이주희)
+ * Repository class for Reservation data CRUD
  *
  */
 

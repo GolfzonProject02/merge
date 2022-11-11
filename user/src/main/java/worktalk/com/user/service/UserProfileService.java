@@ -2,6 +2,13 @@ package worktalk.com.user.service;
 
 import worktalk.com.user.domain.User;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service interface for user profile service
+ *
+ */
+
 public interface UserProfileService {
 	
 //	public int update(String updateKey, User user);

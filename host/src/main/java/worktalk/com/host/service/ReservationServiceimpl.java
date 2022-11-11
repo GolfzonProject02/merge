@@ -13,8 +13,8 @@ import worktalk.com.host.repository.ReservationDAO;
 
 /**
  * 
- * @author Juhee Fred Lee (이주희) Service class for host reservation data
- *         management service
+ * @author Juhee Fred Lee (이주희) 
+ * Service class for host reservation data CRUD service
  *
  */
 

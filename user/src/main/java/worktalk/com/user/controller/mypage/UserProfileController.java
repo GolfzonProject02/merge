@@ -16,7 +16,10 @@ import worktalk.com.user.repository.UserProfileFAO;
 import worktalk.com.user.service.UserProfileService;
 
 /**
- * Handles requests for the application home page.
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Controller class for user profile pages
+ *
  */
 @Controller
 public class UserProfileController {
@@ -47,25 +50,6 @@ public class UserProfileController {
 		
 		return "mypage/profill";
 	}
-	
-//	/**
-//	 * Updating profile information
-//	 */
-//	@RequestMapping(value = {"/mypage/update.do"}, method = RequestMethod.POST)
-//	@ResponseBody
-//	public String update(User user, String searchKey) {
-//		logger.info("Welcome update.do!");
-//		logger.info("{}", user);
-//		
-//		if (searchKey.equals("imgname")) {
-//			user = profileFAO.getUser(user);
-//			logger.info("{}", user);
-//		}
-//		
-//		int flag = profileService.update(searchKey, user);
-//		
-//		return String.valueOf(flag);
-//	}
 	
 	/**
 	 * Updating profile information

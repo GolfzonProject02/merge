@@ -2,7 +2,11 @@ package worktalk.com.user.repository;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
-
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Calculating Timestamps (Adding hours and dates)
+ */
 public class CalTimestamp {
 	
 	public Timestamp calDate(Timestamp ts, int num) {

@@ -12,6 +12,13 @@ import org.springframework.stereotype.Repository;
 
 import worktalk.com.host.domain.Host;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * FAO class for saving profile data
+ * 
+ */
+
 @Repository
 public class HostProfileFAOimpl implements HostProfileFAO {
 	private static final Logger logger = LoggerFactory.getLogger(HostProfileFAOimpl.class);

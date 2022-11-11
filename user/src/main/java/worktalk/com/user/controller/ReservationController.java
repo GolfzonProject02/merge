@@ -185,6 +185,9 @@ public class ReservationController {
 		return "reservation/reservationList";
 	}
 	
+	/**
+	 * request for reservation list under certain conditions
+	 */
 	@ResponseBody
 	@RequestMapping(value = {"/reservation/findByStatus.do"}, method = RequestMethod.GET)
 	public List<Reservation> findByStatus(Reservation reservation) {

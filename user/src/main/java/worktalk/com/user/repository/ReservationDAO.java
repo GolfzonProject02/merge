@@ -4,6 +4,13 @@ import java.util.List;
 
 import worktalk.com.user.domain.Reservation;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Repository interface for reservation data crud
+ * 
+ */
+
 public interface ReservationDAO {
 	
 	public Reservation reserve(Reservation reservation);

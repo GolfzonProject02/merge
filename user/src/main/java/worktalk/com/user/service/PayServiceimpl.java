@@ -23,6 +23,13 @@ import worktalk.com.user.domain.Payment_status;
 import worktalk.com.user.repository.CalTimestamp;
 import worktalk.com.user.repository.PayDAO;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service class for user payment service
+ *
+ */
+
 @Service
 public class PayServiceimpl implements PayService {
 
@@ -41,16 +48,6 @@ public class PayServiceimpl implements PayService {
 	public Pay insert(Pay pay) {
 		logger.info("insert()....");
 		pay.setP_status(Payment_status.Prepaid.toString());
-		
-//		Timestamp p_date = new Timestamp(Long.valueOf(pay.getP_date()));
-//		logger.info("p_date: {}", p_date);
-//		logger.info("{}", System.currentTimeMillis());
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-		
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-//		String date = sdf.format(p_date);
-//		pay.setP_date(date);
-		
 		
 		logger.info("{}", pay);
 		int flag = dao.insert(pay);
@@ -104,7 +101,7 @@ public class PayServiceimpl implements PayService {
 		Timestamp checkin_date = Timestamp.valueOf(result.getCheckin_date());
 		CalTimestamp ct = new CalTimestamp();
 		
-		
+		// calculating time and refund amout
 		if (result.getP_status() == Payment_status.Deposit.toString()) {
 			
 			Timestamp standard = ct.calHour(current_time, -1);

@@ -8,6 +8,13 @@ import org.springframework.stereotype.Service;
 import worktalk.com.user.domain.User;
 import worktalk.com.user.repository.UserDAO;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service class for user profile service
+ *
+ */
+
 @Service
 public class UserProfileServiceimpl implements UserProfileService {
 	

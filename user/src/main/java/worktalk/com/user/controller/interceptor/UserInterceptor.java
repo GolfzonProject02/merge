@@ -6,8 +6,14 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Interceptor class for my page
+ *
+ */
 
 public class UserInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(UserInterceptor.class);

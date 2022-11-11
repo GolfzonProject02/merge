@@ -19,6 +19,13 @@ import worktalk.com.host.domain.Pay;
 import worktalk.com.host.domain.Payment_status;
 import worktalk.com.host.repository.PayDAO;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service class for user payment service
+ *
+ */
+
 @Service
 public class PayServiceimpl implements PayService {
 

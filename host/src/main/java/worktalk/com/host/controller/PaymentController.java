@@ -17,8 +17,10 @@ import worktalk.com.host.domain.Pay;
 import worktalk.com.host.service.PayService;
 
 /**
- * author: Juhee Fred Lee (이주희)
- * Controller class for login and logout.
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Controller class for payment pages
+ *
  */
 @Controller
 public class PaymentController {

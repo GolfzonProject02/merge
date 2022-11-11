@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import worktalk.com.user.domain.Pay;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Repository class for payment data crud
+ * 
+ */
 @Repository
 public class PayDAOimpl implements PayDAO{
 	
