@@ -16,7 +16,10 @@ import worktalk.com.user.domain.Reservation;
 import worktalk.com.user.service.ReservationService;
 
 /**
- * Handles requests for the application mypage.
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Controller class for user reservation pages
+ *
  */
 @Controller
 public class UserReservationController {

@@ -10,6 +10,13 @@ import com.siot.IamportRestClient.response.Payment;
 
 import worktalk.com.user.domain.Pay;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Service interface for payment service
+ * 
+ */
+
 public interface PayService {
 	
 	public Pay insert(Pay pay);

@@ -9,6 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Interceptor class for backoffice
+ *
+ */
+
 public class BackofficeInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(BackofficeInterceptor.class);
 	

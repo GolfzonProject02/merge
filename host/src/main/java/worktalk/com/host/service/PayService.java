@@ -1,15 +1,18 @@
 package worktalk.com.host.service;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.List;
 
 import com.siot.IamportRestClient.exception.IamportResponseException;
-import com.siot.IamportRestClient.response.IamportResponse;
-import com.siot.IamportRestClient.response.Payment;
 
 import worktalk.com.host.domain.Pay;
-import worktalk.com.host.domain.Reservation;
+
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Service interface for payment service
+ * 
+ */
 
 public interface PayService {
 	

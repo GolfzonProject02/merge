@@ -2,6 +2,13 @@ package worktalk.com.host.repository;
 
 import worktalk.com.host.domain.Host;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Repository interface for host data crud
+ * 
+ */
+
 public interface HostDAO {
 	
 	public int join(Host host);

@@ -2,6 +2,13 @@ package worktalk.com.host.service;
 
 import worktalk.com.host.domain.Host;
 
+/**
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Service interface for sending valdation email
+ * 
+ */
+
 public interface MailSenderService {
 	
 	public int creatingRandomCode();

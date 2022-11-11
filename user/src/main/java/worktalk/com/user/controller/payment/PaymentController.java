@@ -24,7 +24,10 @@ import worktalk.com.user.domain.Reservation;
 import worktalk.com.user.service.PayService;
 
 /**
- * Handles requests for the application home page.
+ * 
+ * @author Juhee Fred Lee (이주희)
+ * Controller class for payment pages
+ *
  */
 @Controller
 public class PaymentController {
@@ -37,17 +40,7 @@ public class PaymentController {
 	PayService service;
 
 	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = { "/payment/prepaid_test.do" }, method = RequestMethod.GET)
-	public String prepaid_test() {
-		logger.info("Welcome prepaid_test!");
-
-		return "payment/prepaid";
-	}
-
-	/**
-	 * Simply selects the home view to render by returning its name.
+	 * Recieving response for payment result
 	 */
 	@RequestMapping(value = { "payment/payment_test_getResult.do" }, method = RequestMethod.POST)
 	public Object payment_test_getResult(Pay pay, Reservation reservation) {
@@ -58,6 +51,9 @@ public class PaymentController {
 		return "payment/prepaid";
 	}
 	
+	/**
+	 * Fetching payment result response from Iamport API
+	 */
 	@ResponseBody
 //	@RequestMapping(value = { "/payment/verify/{imp_uid}" }, method = RequestMethod.POST)
 	@RequestMapping(value = { "payment/verify.do" }, method = RequestMethod.POST)
@@ -75,39 +71,29 @@ public class PaymentController {
 		return service.verifyByUid(pay.getImp_uid());
 	}
 	
-//	@ResponseBody
-//	@RequestMapping(value = { "/payment/findByName" }, method = RequestMethod.GET)
-//	public IamportResponse<Payment> paymentFindByName(
-//			Model model, Locale locale ,HttpSession session, List<String> id_list)
-//			throws IamportResponseException, IOException {
-//
-//		// REST API 키와 REST API secret 를 아래처럼 순서대로 입력한다.
-//
-//		logger.info("Welcome findByName!");
-//		String id = "id";
-//		return null;
-////		return api.paymentByImpUid(id_list);
-//	}
-	
+	/*
+	 * Canceling the former payment through Iamport API
+	 */
 	@ResponseBody
 	@RequestMapping(value = { "payment/cancel.do" }, method = RequestMethod.GET)
 	public IamportResponse<Payment> paymentCancel(
 			Model model, Locale locale ,HttpSession session, Pay pay)
 					throws IamportResponseException, IOException {
 		
-		// REST API 키와 REST API secret 를 아래처럼 순서대로 입력한다.
 		
 		logger.info("Welcome cancel!");
 		
 		return service.cancelByUid(pay.getImp_uid());
 	}
 	
+	/*
+	 * Canceling the former payment through Iamport API and redirecting to certain pages.
+	 */
 	@RequestMapping(value = { "payment/cancel_page.do" }, method = RequestMethod.GET)
 	public String paymentCancel_page(
 			Model model, Locale locale ,HttpSession session, Pay pay, long space_num)
 					throws IamportResponseException, IOException {
 		
-		// REST API 키와 REST API secret 를 아래처럼 순서대로 입력한다.
 		
 		logger.info("Welcome cancel_page!");
 		logger.info("pay: {}", pay);
@@ -124,6 +110,9 @@ public class PaymentController {
 		
 	}
 	
+	/*
+	 * Requesting for payment history page
+	 */
 	@RequestMapping(value = { "payment/findHistoryByName.do" }, method = RequestMethod.GET)
 	public String paymentCancel_page(Pay pay, Model model) {
 		logger.info("Welcome findHistoryByName!");

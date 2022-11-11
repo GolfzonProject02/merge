@@ -11,6 +11,13 @@ import worktalk.com.user.domain.Reservation;
 import worktalk.com.user.domain.Reservation_status;
 import worktalk.com.user.repository.ReservationDAO;
 
+/**
+ * 
+ * @author Juhee Fred Lee
+ * Service class for reservation service
+ *
+ */
+
 @Service
 public class ReservationServiceimpl implements ReservationService {
 	
